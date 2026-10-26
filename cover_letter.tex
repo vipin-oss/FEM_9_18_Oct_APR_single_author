@@ -1,40 +1,74 @@
-\documentclass[11pt]{letter}
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage{setspace}
-\setstretch{1.05}
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,top=0.78in,bottom=0.78in,left=0.9in,right=0.9in]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\linespread{1.06}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\pagestyle{empty}
 
 \begin{document}
 
-\begin{letter}{Editor-in-Chief\\
-Applied Physics Reviews\\
-AIP Publishing}
-
-\opening{Dear Editor-in-Chief,}
-
-I respectfully submit the manuscript entitled
-\textbf{``Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast''}
-as an Original Research Article for consideration in \textit{Applied Physics Reviews}.
-
-\textbf{Knowledge gap and novelty.} The work addresses the need for a carefully verified framework that can distinguish orientation-driven dispersion and energy-flow steering in a homogeneous higher-order elastic medium from complete Bragg attenuation caused by periodic material contrast. I combine a rotated ellipsoidal characteristic-length tensor, local Mindlin Form-II strain-gradient elasticity, independent gradient micro-inertia, and a conforming 32-degree-of-freedom Bogner--Fox--Schmit element. Bloch phases are imposed on displacement and derivative degrees of freedom, and the study evaluates both directional spectral and complete-gap measures rather than treating them as interchangeable.
-
-\textbf{Importance of the results.} In the homogeneous case, the largest sampled $\Gamma$--$X$ directional spectral separation is 0.0677, while the complete-gap measure remains negative; the maximum acoustic-branch group-velocity deflection is 2.7846$^\circ$. For the epoxy--YBCO contrast case, a positive complete gap is obtained, but its reported width decreases from 2.5732 on a $4\times4$ mesh to 1.9179 on a $64\times64$ mesh. I explicitly identify this result as mesh-unconverged. The distinction clarifies which response is attributable to tensor orientation and which requires material contrast, while the numerical checks and disclosed resolution limits help readers assess the evidence and its scope.
-
-\textbf{Appeal to APR readers.} The framework and findings connect applied continuum physics, computational mechanics, phononic materials, and elastic-wave design. I believe the separation of wave steering from complete attenuation will be of interest to APR readers working on engineered media and wave control.
-
-\textbf{Related work by the author.} I confirm that there is no closely related published or submitted work by me to list.
-
-\textbf{Submission declarations.} I confirm that this manuscript is original, has not been published previously, and is not under consideration elsewhere. I approve its submission to Applied Physics Reviews.
-
-Thank you for considering my manuscript.
-
-\closing{Sincerely,}
-
-\textbf{Vipin Gupta}\\
-Corresponding Author\\
+% Sender academic header
+\noindent
+\begin{minipage}[t]{0.54\textwidth}
+\textbf{\large Vipin Gupta}\\
 Department of Mathematics\\
-Gurugram University, Gurugram-122505, India\\
-E-mail: vipin@gurugramuniversity.ac.in
+Gurugram University, Gurugram-122505, Haryana, India
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
+\raggedleft
+E-mail: \href{mailto:vipin@gurugramuniversity.ac.in}{\texttt{vipin@gurugramuniversity.ac.in}}\\
+ORCID: \href{https://orcid.org/0000-0002-5238-1963}{\texttt{0000-0002-5238-1963}}\\
+\today
+\end{minipage}
 
-\end{letter}
+\vspace{4pt}
+\noindent\rule{\textwidth}{0.6pt}
+\vspace{4pt}
+
+% Recipient block
+\noindent
+\textbf{Prof.\ Peter Wriggers}\\
+Editor-in-Chief, \textit{Computational Mechanics}\\
+Springer Nature
+
+\vspace{4pt}
+\noindent
+\textbf{Subject:} Submission of Original Research Article to \textit{Computational Mechanics}
+
+\vspace{4pt}
+\noindent Dear Prof.\ Wriggers,
+
+I respectfully submit the manuscript entitled \textbf{``Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast''} for consideration as an Original Research Article in \textit{Computational Mechanics}.
+
+\textbf{Computational formulation and verification.}
+Higher-order strain-gradient elastodynamics requires $C^1$-continuous displacement fields together with phase-consistent periodic coupling of both displacements and spatial derivatives. In this manuscript, I formulate and verify a two-dimensional Bloch--Floquet finite-element framework combining a rotated ellipsoidal characteristic-length tensor $\bm{L}(\theta,\mathrm{AR})$, local Mindlin Form-II strain-gradient elasticity, and independent gradient micro-inertia, discretized with a conforming 32-degree-of-freedom Bogner--Fox--Schmit bicubic Hermite element. Bloch phase factors are enforced across unit-cell boundaries on the full Hermite nodal state (values, first derivatives, and mixed second derivatives), and branch continuity across symmetry crossings is tracked using a micro-inertia-weighted Modal Assurance Criterion. An eight-part verification suite confirms machine-precision Hermiticity, reciprocal-lattice periodicity, orientation/swap symmetries, closed-form dispersion recovery with an empirical convergence rate $p = 4.17$ down to eigensolver reproducibility, bounded high-wavenumber phase speeds under micro-inertia, and agreement between central-difference group velocity and cycle-averaged higher-order Poynting energy flux to $6.91\times 10^{-10}$.
+
+\textbf{Principal findings and numerical transparency.}
+The study separates wave phenomena governed by tensor orientation in a homogeneous strain-gradient continuum from those requiring periodic material contrast:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+  \item In the homogeneous medium (Case~H), rotating and elongating $\bm{L}(\theta,\mathrm{AR})$ produces a directional spectral separation along $\Gamma$--$X$ (up to $0.0677$ at $\theta=0^\circ$, $\mathrm{AR}=7$), whereas the complete-gap metric remains strictly negative across all 42 sampled $(\theta,\mathrm{AR})$ configurations, establishing that homogeneous directional separation is a reduced-zone folding property rather than Bragg attenuation.
+  \item On the acoustic branch, rotation of the characteristic-length tensor steers the cycle-averaged energy flux relative to the wave vector by up to $2.7846^\circ$ ($\mathrm{AR}=10$), with the peak steering angle remaining invariant to within $10^{-5}$ degrees across orientation.
+  \item Introducing periodic epoxy--YBCO material contrast (Case~C) opens a positive complete Bragg band gap across all tested meshes ($4\times 4$ through $64\times 64$, up to $33{,}800$ DOFs). Because the circular inclusion interface cuts through structured Cartesian elements without interface-fitted sub-triangulation, the complete gap narrows monotonically from $2.5732$ ($4\times 4$) to $1.9179$ ($64\times 64$) with successive decrement ratios of $0.552$--$0.565$ (Supplementary Material, Table~S4). Both this non-fitted quadrature limitation and the resulting mesh-unconverged gap sequence are explicitly disclosed.
+\end{enumerate}
+
+\textbf{Disclosure of related work.}
+For full editorial transparency, a separate manuscript by me addressing static boundary-value formulations in strain-gradient finite elements (Ref.\ \texttt{FINEL-D-26-00692R1}) is currently under revision at \textit{Finite Elements in Analysis \& Design}. That static study does not address Bloch--Floquet elastodynamic dispersion, gradient micro-inertia, higher-order Poynting energy-flux wave steering, or periodic phononic band-gap analysis, and shares no figures, tables, or numerical datasets with the present submission.
+
+\textbf{Submission declarations.}
+I confirm that this manuscript is original, has not been published previously, and is not under consideration for publication elsewhere. A separate Supplementary Material file (\texttt{Supplementary\_Material.pdf}) is attached alongside the manuscript. Thank you very much for considering this manuscript for \textit{Computational Mechanics}.
+
+\vspace{6pt}
+\noindent Sincerely,
+
+\vspace{14pt}
+\noindent
+\textbf{Vipin Gupta}\\
+Corresponding Author, Department of Mathematics, Gurugram University, India
 
 \end{document}

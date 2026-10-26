@@ -11,22 +11,26 @@ u_i(x, y) = \sum_{a=1}^4 \sum_{p=1}^4 N_{a,p}(x, y) d_{i, a, p}^e, \quad i \in \
 \end{equation}
 where $a \in \{1, 2, 3, 4\}$ indexes the four element vertices, and $p \in \{1, 2, 3, 4\}$ denotes the four nodal degrees of freedom per displacement component:
 \begin{equation}
+\setlength{\arraycolsep}{3.5pt}
 \bm{d}_{i, a}^e = \begin{bmatrix} u_i & \frac{\partial u_i}{\partial x} & \frac{\partial u_i}{\partial y} & \frac{\partial^2 u_i}{\partial x \partial y} \end{bmatrix}^\mathsf{T}_{\text{at node } a}.
 \label{eq:nodal_dof_vector}
 \end{equation}
 With 4 vertices and 2 displacement components, each BFS element has $4 \times 2 \times 4 = 32$ degrees of freedom. Figure~\ref{fig:bfs_dof} shows the nodal DOFs and their Bloch-phase mapping at periodic boundaries. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h = L/n = 0.0625$ and $8 n^2 = 2048$ degrees of freedom per cell; Table~\ref{tab:case_params} lists the mesh size. Here $8n^2$ denotes the independent Bloch-reduced degrees of freedom, whereas the DOF counts reported in the supplementary Case-C resolution table (Table~S4) correspond to the assembled nodal system before Bloch reduction, $8(N+1)^2$.
 
-\begin{figure}[htbp]
+\begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_bfs_dof_bloch.pdf}
-\caption{(a) Nodal degrees of freedom in the 32-DOF $C^1$ Bogner--Fox--Schmit (BFS) element; each displacement component has 4 nodal DOFs, $\{u, u_{,x}, u_{,y}, u_{,xy}\}$. (b) Master--slave Bloch coupling at periodic boundaries. The phase $e^{\iu \bmk \cdot \bm{a}_\alpha}$ applies to displacement and derivative degrees of freedom alike.}
+\caption{(a) Nodal degrees of freedom in the 32-DOF $C^1$ Bogner--Fox--Schmit (BFS) element; each displacement component has 4 nodal DOFs, $\{u, u_{,x}, u_{,y}, u_{,xy}\}$. (b) Master--slave Bloch coupling at periodic boundaries. The phase $e^{\iu \bmk \cdot \bm{a}_\alpha}$ applies to displacement and derivative degrees of freedom alike}
 \label{fig:bfs_dof}
-\end{figure}
+\end{figure*}
 
 \subsection{Element matrices}
 The strain tensor $\bm\varepsilon$ and strain-gradient tensor $\bm\eta$ within element $e$ are related to the element nodal displacement vector $\bm{d}^e \in \mathbb{R}^{32}$ via kinematic strain-displacement matrices $\bmB^c$ and $\bmB^g_k$:
 \begin{equation}
-\bm\varepsilon = \bmB^c \bm{d}^e, \quad \bm\eta_k \equiv \frac{\partial \bm\varepsilon}{\partial x_k} = \bmB^g_k \bm{d}^e, \quad k \in \{1, 2\}.
+\begin{split}
+\bm\varepsilon &= \bmB^c \bm{d}^e,\\
+\bm\eta_k &\equiv \frac{\partial \bm\varepsilon}{\partial x_k} = \bmB^g_k \bm{d}^e, \quad k \in \{1, 2\}.
+\end{split}
 \label{eq:strain_matrices}
 \end{equation}
 The element stiffness matrix $\bmK^e$ is the sum of classical and gradient contributions:
@@ -46,7 +50,7 @@ and the anisotropic gradient stiffness matrix is:
 \end{equation}
 Because the shape functions are bicubic tensor-product polynomials, each homogeneous-element stiffness and mass integrand has degree at most six in each coordinate. A four-point Gauss--Legendre rule is exact through degree seven, so the $4 \times 4$ tensor rule is the smallest rule that integrates all such terms exactly. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. In elements cut by the inclusion, the discontinuous material field is instead integrated by sub-cell Gauss sampling with an $O(h)$ geometric approximation (Section~\ref{sec:caseC_pc}).
 
-\paragraph{Mass and micro-inertia matrices}
+\subsubsection{Mass and micro-inertia matrices}
 The kinetic energy gives the classical and micro-inertia mass contributions:
 \begin{equation}
 \bmM^e = \bmM_0 + \ell_{\mathrm{i}}^2 \bmM^g,
@@ -79,16 +83,22 @@ In the continuous weak form, natural boundary work cancels between opposite cell
 
 We collect these relations in the master--slave transformation matrix $\bmT(\bmk)$:
 \begin{equation}
-\bm{d} = \bmT(\bmk) \bar{\bm{d}}, \quad \bmT(\bmk) = \begin{bmatrix} \mathbf{I}_{II} & \mathbf{0} \\ \mathbf{0} & \mathbf{I}_{MM} \\ \mathbf{0} & \bmT_{SM}(\bmk) \end{bmatrix}, \quad \bar{\bm{d}} = \begin{bmatrix} \bm{d}_I \\ \bm{d}_M \end{bmatrix},
+\begin{split}
+\bm{d} &= \bmT(\bmk) \bar{\bm{d}}, \quad \bar{\bm{d}} = \begin{bmatrix} \bm{d}_I \\ \bm{d}_M \end{bmatrix}, \\
+\bmT(\bmk) &= \begin{bmatrix} \mathbf{I}_{II} & \mathbf{0} \\ \mathbf{0} & \mathbf{I}_{MM} \\ \mathbf{0} & \bmT_{SM}(\bmk) \end{bmatrix},
+\end{split}
 \label{eq:T_bloch}
 \end{equation}
 The reduced stiffness and mass matrices follow from Galerkin projection:
 \begin{equation}
-\bar{\bmK}(\bmk) = \bmT(\bmk)^\mathsf{H} \bmK \bmT(\bmk), \quad \bar{\bmM}(\bmk) = \bmT(\bmk)^\mathsf{H} \bmM \bmT(\bmk).
+\begin{split}
+\bar{\bmK}(\bmk) &= \bmT(\bmk)^\mathsf{H} \bmK \bmT(\bmk), \\
+\bar{\bmM}(\bmk) &= \bmT(\bmk)^\mathsf{H} \bmM \bmT(\bmk).
+\end{split}
 \label{eq:reduced_KM}
 \end{equation}
 
-\paragraph{Reduced Hermitian eigenproblem}
+\subsubsection{Reduced Hermitian eigenproblem}
 We obtain the dispersion curves $\barw_n(\bmk)$ from the reduced generalized eigenvalue problem:
 \begin{equation}
 \left[ \bar{\bmK}(\bmk) - \omega^2 \bar{\bmM}(\bmk) \right] \bar{\bm{d}} = \bm{0}.
@@ -96,15 +106,20 @@ We obtain the dispersion curves $\barw_n(\bmk)$ from the reduced generalized eig
 \end{equation}
 Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so this subblock is unitary. The full map $\bmT(\bmk)$ is rectangular and full-column-rank, but is not unitary. For positive elastic and inertial parameters, the full-cell matrices satisfy $\bmK\succeq 0$ and $\bmM\succ 0$; the reduced operators are therefore Hermitian:
 \begin{equation}
-\bar{\bmK}(\bmk)^\mathsf{H} = \bar{\bmK}(\bmk) \succeq 0, \quad \bar{\bmM}(\bmk)^\mathsf{H} = \bar{\bmM}(\bmk) \succ 0,
+\begin{split}
+\bar{\bmK}(\bmk)^\mathsf{H} &= \bar{\bmK}(\bmk) \succeq 0, \\
+\bar{\bmM}(\bmk)^\mathsf{H} &= \bar{\bmM}(\bmk) \succ 0,
+\end{split}
 \label{eq:hermiticity}
 \end{equation}
 The generalized eigenvalues $\omega_n^2$ are therefore real and nonnegative. Shifting $\bmk$ by a reciprocal-lattice vector $\bm{G}$ leaves every Bloch phase unchanged, so the reduced stiffness and mass matrices satisfy $\bar{\bmK}(\bmk + \bm{G}) = \bar{\bmK}(\bmk)$ and $\bar{\bmM}(\bmk + \bm{G}) = \bar{\bmM}(\bmk)$. The spectrum is periodic across reciprocal space.
 
-\paragraph{Branch tracking}
+\subsubsection{Branch tracking}
 Modes with different spatial symmetries can cross along high-symmetry paths. We track their identity between adjacent wave vectors using the Modal Assurance Criterion (MAC) at $\bmk_1$ and $\bmk_2$. Let $\bm{d}_m(\bmk)=\bmT(\bmk)\bar{\bm{d}}_m(\bmk)$ be the corresponding full-cell eigenvector, and let $\bmM$ be the common, assembled full-cell mass matrix, including gradient micro-inertia. The cross-wavevector MAC is
 \begin{equation}
+{\small
 \mathrm{MAC}_{mn}(\bmk_1,\bmk_2) = \frac{\left| \bm{d}_m(\bmk_1)^\mathsf{H} \bmM \bm{d}_n(\bmk_2) \right|^2}{\left( \bm{d}_m(\bmk_1)^\mathsf{H} \bmM \bm{d}_m(\bmk_1) \right) \left( \bm{d}_n(\bmk_2)^\mathsf{H} \bmM \bm{d}_n(\bmk_2) \right)}
+}
 \label{eq:mac_def}
 \end{equation}
 The lifted vectors use a common full-cell mass metric; the reduced mass matrix depends on $\bmk$ and is not used to compare modes at different wave vectors. If the off-diagonal MAC indicates a branch exchange, the continuation step is halved. Band gaps are computed from the frequency-ordered eigenvalues $\barw_1(\bmk) \le \barw_2(\bmk) \le \dots \le \barw_N(\bmk)$, independently of the mode labels assigned during tracking.

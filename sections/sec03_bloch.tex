@@ -4,8 +4,8 @@
 \subsection{Square lattice and Bloch conditions}
 We generate the two-dimensional periodic medium by translating the square cell $\Omega_{\mathrm{cell}}=[0,L]\times[0,L]$ along
 \begin{equation}
-\bm{a}_1=\begin{bmatrix}L\\0\end{bmatrix},\qquad
-\bm{a}_2=\begin{bmatrix}0\\L\end{bmatrix}.
+\bm{a}_1=\begin{bmatrix}L \\ 0\end{bmatrix},\qquad
+\bm{a}_2=\begin{bmatrix}0 \\ L\end{bmatrix}.
 \label{eq:lattice_vectors}
 \end{equation}
 The corresponding reciprocal vectors satisfy $\bm{a}_i\cdot\bm{b}_j=2\pi\delta_{ij}$:
@@ -16,12 +16,12 @@ The corresponding reciprocal vectors satisfy $\bm{a}_i\cdot\bm{b}_j=2\pi\delta_{
 \end{equation}
 The first Brillouin zone is $\mathcal{B}=[-\pi/L,\pi/L]^2$. For the isotropic square lattice, $C_{4v}$ symmetry permits the path $\Gamma(0,0)$--$X(\pi/L,0)$--$M(\pi/L,\pi/L)$--$\Gamma$. Anisotropy reduces the symmetry to $C_{2v}$ for $\theta=0^\circ$ or $90^\circ$, and to $C_2$ at general orientation; full-zone measures are therefore evaluated over the corresponding Brillouin zone. Figure~\ref{fig:lattice_ibz} shows the periodic square lattice and this high-symmetry $\Gamma$--$X$--$M$--$\Gamma$ contour.
 
-\begin{figure}[htbp]
+\begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig02_lattice_ibz.pdf}
-\caption{(a) Square periodic lattice. (b) First Brillouin zone and the high-symmetry contour $\Gamma$--$X$--$M$--$\Gamma$.}
+\caption{(a) Square periodic lattice. (b) First Brillouin zone and the high-symmetry contour $\Gamma$--$X$--$M$--$\Gamma$}
 \label{fig:lattice_ibz}
-\end{figure}
+\end{figure*}
 
 For a time-harmonic displacement $\bmu(\bmx,t)=\tilde{\bmu}(\bmx)e^{\iu(\bmk\cdot\bmx-\omega t)}$, Bloch periodicity gives
 \begin{equation}
@@ -42,15 +42,24 @@ Thus displacement, first derivatives, and cross derivatives all take the same Bl
 For Case~H, I scale length, frequency, and velocity with the cell length $L$, shear modulus $\mu$, and density $\rho$:
 \begin{equation}
 \begin{split}
-\bark&=\frac{kL}{\pi},\qquad \barw=\frac{\omega}{\omega_0},\qquad
-\omega_0=\sqrt{\frac{\mu}{\rho L^2}},\\
-\bar{l}_m&=\frac{l_m}{L},\qquad
-\ellbar=\frac{\ell_{\mathrm{i}}}{L},\qquad
-\bar{v}_p=\frac{\omega/k}{\sqrt{\mu/\rho}}.
+\bark&=\frac{kL}{\pi},\qquad \barw=\frac{\omega}{\omega_0},\\
+\omega_0&=\sqrt{\frac{\mu}{\rho L^2}},\qquad \bar{l}_m=\frac{l_m}{L},\\
+\ellbar&=\frac{\ell_{\mathrm{i}}}{L},\qquad \bar{v}_p=\frac{\omega/k}{\sqrt{\mu/\rho}}.
 \end{split}
 \label{eq:nondim_defs}
 \end{equation}
 This gives $c_T=1$ and $c_L=\sqrt{(\lambda+2\mu)/\mu}=\sqrt{3}$ for $\lambda/\mu=1$ ($\nu=0.25$). Case~C uses the matrix shear speed and frequency scale specified in Table~\ref{tab:case_params}.
+
+\begin{table*}[htbp]
+\begin{center}
+\begin{threeparttable}
+\tablebodyfont
+\caption{Selected material and numerical inputs for Cases H and C and the steering analysis}
+\label{tab:case_params}
+\input{tables/tab01_case_parameters.tex}
+\end{threeparttable}
+\end{center}
+\end{table*}
 
 \subsection{Gap and steering measures}
 At each wave vector, the eigenfrequencies are ordered as $\barw_1(\bmk)\le\barw_2(\bmk)\le\cdots$. We distinguish gaps evaluated on one path leg, the complete high-symmetry path, and the full Brillouin zone:

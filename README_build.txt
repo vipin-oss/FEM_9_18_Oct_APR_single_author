@@ -1,20 +1,52 @@
-Applied Physics Reviews — single-author source package
+Computational Mechanics (Springer Nature) LaTeX Build Notes
+===========================================================
 
-Contents
-- manuscript_final_v7.tex: main AIP REVTeX 4.2 manuscript
-- Supplementary_Material.tex: separately compiled supplementary material
-- cover_letter.tex: APR cover letter source
-- references_final_v7.bib, figures/, sections/, tables/, supplementary/tables/: required source dependencies
-- alt_text_for_revision.txt and APR_submission_checklist.md: accessibility and submission notes
+Main manuscript (`manuscript_final_v7.tex`)
+-------------------------------------------
+Class & style files (included in repository root):
+  - `sn-jnl.cls`          : Official Springer Nature journal class, invoked with
+                            `\documentclass[pdflatex,sn-basic,Numbered,iicol]{sn-jnl}`
+                            (`[iicol]` = Computational Mechanics two-column layout;
+                             `[sn-basic,Numbered]` = `[1]`, `[1-3, 7]` numbered citations
+                             with full `https://doi.org/...` links).
+  - `sn-basic.bst`        : Official Springer Nature BibTeX style used by `sn-basic`.
+  - `sn-mathphys-num.bst` : Retained alongside `sn-basic.bst` for standard Springer
+                            Nature template completeness.
 
-Build with TeX Live (REVTeX 4.2 and AIP bibliography style aipnum4-2):
-  latexmk -pdf -halt-on-error -interaction=nonstopmode manuscript_final_v7.tex
-  latexmk -pdf -halt-on-error -interaction=nonstopmode Supplementary_Material.tex
-  latexmk -pdf -halt-on-error -interaction=nonstopmode cover_letter.tex
+Compile commands:
+  pdflatex manuscript_final_v7.tex
+  bibtex manuscript_final_v7
+  pdflatex manuscript_final_v7.tex
+  pdflatex manuscript_final_v7.tex
 
-AIP uses the generic REVTeX class option `aip`; there is no separate `apr` class option.
+Or with `latexmk`:
+  latexmk -pdf manuscript_final_v7.tex
 
-Verification: GitHub Actions runs 39101209159 and 39101401210 both completed successfully with TeX Live 2025. Run 39101401210 compiled all three documents and uploaded the `apr-submission-pdfs` artifact.
-Build and PDF artifact: https://github.com/vipin-oss/FEM_9_JSV/actions/runs/39101401210
+Supplementary Material (`Supplementary_Material.tex` -> `Supplementary_Material.pdf`)
+-------------------------------------------------------------------------------------
+Compiled separately as a standalone Springer Nature single-column supplement to
+be attached directly in the portal's Supplementary Material upload option:
+  pdflatex Supplementary_Material.tex
+  bibtex Supplementary_Material
+  pdflatex Supplementary_Material.tex
+  pdflatex Supplementary_Material.tex
 
-Before submission, verify the CRediT roles, declarations, affiliation and contact details, and funding acknowledgment described in APR_submission_checklist.md.
+Note: `Supplementary_Material.tex` uses `tabularray` (`longtblr`) for Table S1,
+requiring TeX Live 2022 or newer (or current MiKTeX / Overleaf).
+
+Cover letter (`cover_letter.tex`)
+---------------------------------
+Addressed to Prof. Peter Wriggers, Editor-in-Chief, Computational Mechanics:
+  pdflatex cover_letter.tex
+
+Portal upload notes for Springer Nature (SNAPP)
+-----------------------------------------------
+- Upload editable LaTeX source files (`manuscript_final_v7.tex`, `sn-jnl.cls`,
+  `sn-basic.bst`, `references_final_v7.bib`, `sections/*.tex`, `tables/*.tex`,
+  and `figures/*.pdf`) plus the compiled `manuscript_final_v7.pdf`.
+- Upload `Supplementary_Material.pdf` directly in the portal's Supplementary
+  Material attachment slot alongside the manuscript.
+- Upload `cover_letter.pdf` as Cover Letter.
+- Publishing model: Computational Mechanics (Journal ID 466) is a transformative
+  hybrid journal; select subscription / traditional publishing ($0 APC) upon
+  acceptance if Open Choice OA is not required.

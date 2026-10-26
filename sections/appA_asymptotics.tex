@@ -5,7 +5,10 @@ We derive the high-wavenumber phase-speed limit for the one-dimensional transver
 
 We consider one-dimensional transverse-shear propagation in a Mindlin Form-II gradient-elastic continuum governed by the equation of motion:
 \begin{equation}
-\mu \frac{\partial^2 u}{\partial x^2} - \frac{1}{10} \mu l_{\mathrm{eff}}^2 \frac{\partial^4 u}{\partial x^4} = \rho \frac{\partial^2 u}{\partial t^2} - \rho \ell_{\mathrm{i}}^2 \frac{\partial^4 u}{\partial x^2 \partial t^2},
+\begin{split}
+\mu \frac{\partial^2 u}{\partial x^2} - \frac{1}{10} \mu l_{\mathrm{eff}}^2 \frac{\partial^4 u}{\partial x^4}
+&= \rho \frac{\partial^2 u}{\partial t^2} - \rho \ell_{\mathrm{i}}^2 \frac{\partial^4 u}{\partial x^2 \partial t^2},
+\end{split}
 \label{eq:appA_pde}
 \end{equation}
 where $\mu$ is the shear modulus, $\rho$ is the mass density, $l_{\mathrm{eff}}^2 = \hat{\bmk}\cdot\mathbf{L}\cdot\hat{\bmk}$ is the effective characteristic gradient-stiffness length scale (with the factor $1/10$ inherited from the second moment of the 3D ellipsoidal domain), and $\ell_{\mathrm{i}}$ is the micro-inertia length parameter. Substituting the time-harmonic plane wave ansatz $u(x, t) = A e^{\iu(k x - \omega t)}$ into Eq.~\eqref{eq:appA_pde} yields:
@@ -20,12 +23,15 @@ Solving the equation gives the dispersion relation:
 \end{equation}
 The phase velocity $v_p(k) \equiv \omega(k)/k$ is therefore:
 \begin{equation}
-v_p(k) = \sqrt{\frac{\mu}{\rho}} \sqrt{\frac{1 + \frac{1}{10} l_{\mathrm{eff}}^2 k^2}{1 + \ell_{\mathrm{i}}^2 k^2}} = c_T \sqrt{\frac{1 + \frac{1}{10} l_{\mathrm{eff}}^2 k^2}{1 + \ell_{\mathrm{i}}^2 k^2}},
+\begin{split}
+v_p(k) &= \sqrt{\frac{\mu}{\rho}} \sqrt{\frac{1 + \frac{1}{10} l_{\mathrm{eff}}^2 k^2}{1 + \ell_{\mathrm{i}}^2 k^2}} \\
+&= c_T \sqrt{\frac{1 + \frac{1}{10} l_{\mathrm{eff}}^2 k^2}{1 + \ell_{\mathrm{i}}^2 k^2}},
+\end{split}
 \label{eq:appA_vp}
 \end{equation}
 where $c_T = \sqrt{\mu/\rho}$ is the classical acoustic shear wave speed.
 
-\paragraph{Case 1: No micro-inertia ($\ell_{\mathrm{i}} = 0$)}
+\subsection{Case 1: No micro-inertia ($\ell_{\mathrm{i}} = 0$)}
 Setting $\ell_{\mathrm{i}} = 0$ in Eq.~\eqref{eq:appA_vp} yields:
 \begin{equation}
 v_p(k) = c_T \sqrt{1 + \frac{1}{10} l_{\mathrm{eff}}^2 k^2}.
@@ -46,11 +52,12 @@ v_g(k) &= c_T \frac{1 + \frac{2}{10} l_{\mathrm{eff}}^2 k^2}{\sqrt{1 + \frac{1}{
 \end{equation}
 Both phase and group velocities therefore grow without bound at high wavenumbers in this one-dimensional transverse-shear model when micro-inertia is omitted.
 
-\paragraph{Case 2: With micro-inertia ($\ell_{\mathrm{i}} > 0$)}
+\subsection{Case 2: With micro-inertia ($\ell_{\mathrm{i}} > 0$)}
 For $\ell_{\mathrm{i}} > 0$, taking the limit of Eq.~\eqref{eq:appA_vp} as $k \to \infty$ gives:
 \begin{equation}
 \begin{split}
-v_{p,\infty} \equiv \lim_{k \to \infty} v_p(k) &= c_T \lim_{k \to \infty} \sqrt{\frac{\frac{1}{10} l_{\mathrm{eff}}^2 k^2 (1 + \frac{10}{l_{\mathrm{eff}}^2 k^2})}{\ell_{\mathrm{i}}^2 k^2 (1 + \frac{1}{\ell_{\mathrm{i}}^2 k^2})}} \\
+v_{p,\infty} \equiv \lim_{k \to \infty} v_p(k)
+&= c_T \lim_{k \to \infty} \sqrt{\frac{\frac{1}{10} l_{\mathrm{eff}}^2 k^2 (1 + \frac{10}{l_{\mathrm{eff}}^2 k^2})}{\ell_{\mathrm{i}}^2 k^2 (1 + \frac{1}{\ell_{\mathrm{i}}^2 k^2})}} \\
 &= c_T \frac{l_{\mathrm{eff}}}{\sqrt{10}\,\ell_{\mathrm{i}}}.
 \end{split}
 \label{eq:appA_vp_bounded}
