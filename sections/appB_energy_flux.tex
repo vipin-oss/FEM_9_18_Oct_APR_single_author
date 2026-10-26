@@ -10,7 +10,8 @@ The local balance of mechanical energy is expressed by the continuity relation:
 \end{equation}
 where $W$ and $T$ are the strain and kinetic energy densities defined in Eqs.~\eqref{eq:strain_energy_W} and \eqref{eq:kinetic_energy_T}. Differentiating $W$ and $T$ with respect to time gives:
 \begin{align}
-\frac{\partial W}{\partial t} &= \sigma_{ij} \dot{\varepsilon}_{ij} + \tau_{ijk} \dot{\eta}_{ijk} = \sigma_{ij} \dot{u}_{i,j} + \tau_{ijk} \dot{u}_{i,jk}, \label{eq:appB_dWdt} \\
+\frac{\partial W}{\partial t} &= \sigma_{ij} \dot{\varepsilon}_{ij} + \tau_{ijk} \dot{\eta}_{ijk} \notag \\
+&= \sigma_{ij} \dot{u}_{i,j} + \tau_{ijk} \dot{u}_{i,jk}, \label{eq:appB_dWdt} \\
 \frac{\partial T}{\partial t} &= \rho \dot{u}_i \ddot{u}_i + \rho \ell_{\mathrm{i}}^2 \dot{u}_{i,j} \ddot{u}_{i,j}. \label{eq:appB_dTdt}
 \end{align}
 Expanding the spatial derivative terms in Eq.~\eqref{eq:appB_dWdt} using the product rule:
@@ -21,17 +22,27 @@ Expanding the spatial derivative terms in Eq.~\eqref{eq:appB_dWdt} using the pro
 \end{align}
 Similarly, the micro-inertial rate term in Eq.~\eqref{eq:appB_dTdt} expands to:
 \begin{equation}
-\rho \ell_{\mathrm{i}}^2 \dot{u}_{i,j} \ddot{u}_{i,j} = (\rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j})_{,j} - \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,jj}.
+\begin{split}
+\rho \ell_{\mathrm{i}}^2 \dot{u}_{i,j} \ddot{u}_{i,j}
+&= (\rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j})_{,j} - \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,jj}.
+\end{split}
 \label{eq:appB_id3}
 \end{equation}
 Adding Eqs.~\eqref{eq:appB_dWdt} and \eqref{eq:appB_dTdt} and substituting the equation of motion $\sigma_{ij,j} - \tau_{ijk,jk} = \rho(\ddot{u}_i - \ell_{\mathrm{i}}^2 \ddot{u}_{i,jj})$ from Eq.~\eqref{eq:strong_form} cancels the bulk terms:
 \begin{equation}
-\frac{\partial (W + T)}{\partial t} = \left[ (\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i + \tau_{ikj} \dot{u}_{i,k} + \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j} \right]_{,j}.
+\begin{split}
+\frac{\partial (W + T)}{\partial t}
+&= \Big[ (\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i + \tau_{ikj} \dot{u}_{i,k} \\
+&\quad + \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j} \Big]_{,j}.
+\end{split}
 \label{eq:appB_energy_step}
 \end{equation}
 Comparing Eq.~\eqref{eq:appB_energy_step} with Eq.~\eqref{eq:appB_poynting_theorem} gives the instantaneous energy flux vector $S_j$:
 \begin{equation}
-S_j = -(\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i - \tau_{ikj} \dot{u}_{i,k} - \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j}.
+\begin{split}
+S_j &= -(\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i - \tau_{ikj} \dot{u}_{i,k} \\
+&\quad - \rho \ell_{\mathrm{i}}^2 \dot{u}_i \ddot{u}_{i,j}.
+\end{split}
 \label{eq:appB_S_instant}
 \end{equation}
 The terms in Eq.~\eqref{eq:appB_S_instant} describe classical traction power modified by the double-stress divergence, double-stress power acting on velocity gradients, and a micro-inertial term.
@@ -39,7 +50,9 @@ The terms in Eq.~\eqref{eq:appB_S_instant} describe classical traction power mod
 For time-harmonic fields represented in complex notation $\bmu(\bmx, t) = \mathrm{Re}[\tilde{\bmu}(\bmx) e^{-\iu \omega t}]$, the cycle-averaged energy flux $\langle S_j \rangle = \frac{1}{\mathcal{T}}\int_0^{\mathcal{T}} S_j\,\dif t$ is given by:
 \begin{equation}
 \begin{split}
-\langle S_j \rangle = -\frac{1}{2} \mathrm{Re} \Big[ &(\tilde{\sigma}_{ij} - \tilde{\tau}_{ijk,k}) (-\iu \omega \tilde{u}_i)^* + \tilde{\tau}_{ikj} (-\iu \omega \tilde{u}_{i,k})^* \\
+\langle S_j \rangle = -\frac{1}{2} \mathrm{Re} \Big[
+&(\tilde{\sigma}_{ij} - \tilde{\tau}_{ijk,k}) (-\iu \omega \tilde{u}_i)^* \\
+&+ \tilde{\tau}_{ikj} (-\iu \omega \tilde{u}_{i,k})^* \\
 &+ \rho \ell_{\mathrm{i}}^2 (-\iu \omega \tilde{u}_i) (-\omega^2 \tilde{u}_{i,j})^* \Big].
 \end{split}
 \label{eq:appB_S_cycle}

@@ -1,30 +1,42 @@
-\documentclass[aip,preprint,amsmath,amssymb,superscriptaddress]{revtex4-2}
+\documentclass[pdflatex,sn-basic,Numbered]{sn-jnl}
 
-% Standalone AIP-style PDF to be uploaded separately from the manuscript.
-\usepackage{amsfonts}
+% Standalone Supplementary Material PDF formatted for Computational Mechanics
+% (to be attached via the portal's Supplementary Material upload option).
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
 \usepackage{bm}
 \usepackage{mathtools}
-\usepackage{graphicx}
-\usepackage{booktabs}
 \usepackage{tabularray}
-\usepackage[hidelinks]{hyperref}
+
+\hypersetup{hypertexnames=false}
+
 \newcommand{\bmk}{\bm{k}}
 \newcommand{\barw}{\bar{\omega}}
 
 % Supplementary tables use S1, S2, ... rather than the main-paper table count.
 \renewcommand{\thetable}{S\arabic{table}}
 
+\raggedbottom
+
 \begin{document}
 
-\title{Supplementary Material for: Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast}
+\title[Supplementary Material: Orientation-Dependent Dispersion and Wave Steering]{Supplementary Material for: Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast}
 
-\author{Vipin Gupta}
-\email{vipin@gurugramuniversity.ac.in}
-\affiliation{Department of Mathematics, Gurugram University, Gurugram-122505, India}
+\subtitle{Submitted to \textit{Computational Mechanics}}
+
+% Corresponding author ORCID: 0000-0002-5238-1963 (https://orcid.org/0000-0002-5238-1963)
+\author*[1]{\fnm{Vipin} \sur{Gupta}}\email{vipin@gurugramuniversity.ac.in}
+
+\affil*[1]{\orgdiv{Department of Mathematics}, \orgname{Gurugram University}, \orgaddress{\city{Gurugram}, \postcode{122505}, \state{Haryana}, \country{India}}}
 
 \maketitle
 
-This supplement gives the parameter values and extended checks behind the main manuscript. It distinguishes numerical consistency checks from external comparisons; cases with insufficient source data are not treated as validated benchmarks.
+\noindent This supplement gives the parameter values and extended checks behind the main manuscript. It distinguishes numerical consistency checks from external comparisons; cases with insufficient source data are not treated as validated benchmarks.
 
 \section*{S1. Parameter summary}
 Table~\ref{tab:s1_parameters} lists the material, geometric, and numerical values used in the principal studies and in the external bilayer calculations.
@@ -47,12 +59,9 @@ This section provides expanded diagnostics for the eight consistency checks and 
 
 Table~\ref{tab:s2_gap_ratio} lists normalized directional widths for the representative Case-H designs in the main-text gap summary. At the reported precision, the selected rows agree between the $8\times8$ and $16\times16$ meshes. Across the design map of 42 configurations ($6$ aspect-ratio values $\times$ $7$ orientations), which yields 126 gap-measure values across the three reported metrics, the maximum mesh-to-mesh changes are $5.5\times10^{-3}$ for $\Delta_{GX}$, $5.8\times10^{-3}$ for $\Delta_{\mathrm{path}}$, and $5.7\times10^{-3}$ for $\Delta_{\mathrm{complete}}$.
 \begin{table}[htbp]
-\centering
-\caption{Normalized directional-gap widths for the representative Case-H designs.}
+\caption{Normalized directional-gap widths for the representative Case-H designs}
 \label{tab:s2_gap_ratio}
-\smallskip
-{\raggedright\footnotesize\noindent\textit{Alt text: The normalized directional-gap values are negative in every listed design. More elongated cases show larger negative widths, with orientation dependence appearing for the most elongated configuration.}
-\par}\smallskip
+% Alt text (retained in alt_text_for_revision.txt): The normalized directional-gap values are negative in every listed design. More elongated cases show larger negative widths, with orientation dependence appearing for the most elongated configuration.
 \input{supplementary/tables/tabS2_gap_ratios.tex}
 \end{table}
 
@@ -65,12 +74,9 @@ Table~\ref{tab:s2_gap_ratio} lists normalized directional widths for the represe
 \end{itemize}
 
 \begin{table}[htbp]
-\centering
-\caption{Expanded mesh-convergence data, including successive changes and eigensolver reproducibility.}
+\caption{Expanded mesh-convergence data, including successive changes and eigensolver reproducibility}
 \label{tab:s3_mesh}
-\smallskip
-{\raggedright\footnotesize\noindent\textit{Alt text: The acoustic-frequency error and successive mesh changes decrease as the Case-H mesh is refined. The finest listed mesh is identified as resolution-limited because its error is below measured eigensolver reproducibility.}
-\par}\smallskip
+% Alt text (retained in alt_text_for_revision.txt): The acoustic-frequency error and successive mesh changes decrease as the Case-H mesh is refined. The finest listed mesh is identified as resolution-limited because its error is below measured eigensolver reproducibility.
 \input{supplementary/tables/tabS3_mesh_detail.tex}
 \end{table}
 
@@ -80,17 +86,14 @@ Table~\ref{tab:s3_mesh} lists the expanded convergence data. I fit the empirical
 Table~\ref{tab:s4_caseC_mesh} separates the effects of finite-element mesh and Brillouin-zone sampling on the Case-C complete gap. At the $4\times4$ mesh, the four leg/path values are $\Delta[\Gamma\text{--}X]=2.6114$, $\Delta[X\text{--}M]=2.7563$, $\Delta[M\text{--}\Gamma]=3.2871$, and $\Delta[\mathrm{path}]=2.5732$, compared with $\Delta[\mathrm{complete}]=2.5732$. On the coarsest mesh, the $X$-point gap exceeds the complete gap because the minimum upper-band frequency lies off $X$ along the $\Gamma$--$M$ diagonal. From $8\times8$ onward, the reported $X$-point and complete gaps coincide to the shown precision.
 
 \begin{table}[htbp]
-\centering
-\caption{Case-C complete-gap and $X$-point gap values under mesh refinement.}
+\caption{Case-C complete-gap and $X$-point gap values under mesh refinement}
 \label{tab:s4_caseC_mesh}
-\smallskip
-{\raggedright\footnotesize\noindent\textit{Alt text: The complete gap for the epoxy--YBCO cell decreases monotonically as the finite-element mesh is refined from $4\times4$ to $64\times64$, indicating that the coarse-mesh gap is not converged.}
-\par}\smallskip
+% Alt text (retained in alt_text_for_revision.txt): The complete gap for the epoxy--YBCO cell decreases monotonically as the finite-element mesh is refined from $4\times4$ to $64\times64$, indicating that the coarse-mesh gap is not converged.
 \input{supplementary/tables/tabS4_caseC_resolution.tex}
 \end{table}
 
 At the $4\times4$ mesh, increasing the Brillouin-zone grid from $11\times11$ to $21\times21$ leaves the complete gap at $2.5732$. The $41\times41$ grid gives $2.5728$. As the minimum along $\Gamma$--$M$ is better resolved, the upper edge shifts from $7.1430$ to $7.1426$. For $8\times8$ and $16\times16$ meshes, the $11\times11$ and $21\times21$ grids agree to four decimals; for $32\times32$ and $64\times64$, they agree to six decimals. With the FE mesh fixed at $4\times4$, using $4\times4$, $6\times6$, and $8\times8$ Gauss points per cut element gives $X$-point gaps of $2.7563$, $2.7226$, and $2.7862$, respectively (changes of $-1.22\%$ and $+1.08\%$ relative to the $4\times4$ rule). Under radius variation, $r_0/L=0.20$--$0.40$ corresponds to filling fractions $12.6\%$--$50.3\%$. The complete gap changes from $0.8288$ ($16.61\%$) at $r_0/L=0.20$ to $2.5732$ ($43.94\%$) at $0.30$, then to $2.4426$ ($37.00\%$) at $0.40$. The sequence in Table~\ref{tab:s4_caseC_mesh} decreases with mesh refinement; the quoted coarse-mesh maximum is not a converged continuum value.
 
-\bibliographystyle{aipnum4-2}
 \bibliography{references_final_v7}
+
 \end{document}

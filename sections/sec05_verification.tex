@@ -27,22 +27,26 @@ where $k_m=\omega\sqrt{\rho_m/c_{33,m}}$, $v_m=\sqrt{c_{33,m}/\rho_m}$, and $Z_m
 We reproduce two gradient-elastic bilayer cases, but do not treat them as external validations. One published length-scale definition is dimensionally ambiguous. For the other, the plotted parameter set and normalization are unspecified, and the numerical curves are unavailable. The supplementary material (Sec.~S2) records these limitations and the status of each comparison. We also compare the dipolar layer matrix with the source's printed formulation; this checks the formulation but does not validate its band curves.
 
 \subsection{Numerical consistency and mesh convergence}
-The consistency checks assess operator Hermiticity, Brillouin-zone periodicity, isotropic rotational invariance, acoustic slopes, rotation--swap symmetry, matrix definiteness, the micro-inertia limit, and the energy-flux/group-velocity identity; Table~\ref{tab:consistency_suite} lists the results. The energy-flux identity is evaluated on closed-form Case-H harmonic fields with the sign convention of ~\ref{app:energy_flux}, comparing the cycle-averaged energy flux with a central-difference group velocity for the transverse and longitudinal acoustic branches along several in-plane directions; it holds to $6.91\times10^{-10}$. The supplementary material (Sec.~S3) gives the check definitions and expanded diagnostics.
+The consistency checks assess operator Hermiticity, Brillouin-zone periodicity, isotropic rotational invariance, acoustic slopes, rotation--swap symmetry, matrix definiteness, the micro-inertia limit, and the energy-flux/group-velocity identity; Table~\ref{tab:consistency_suite} lists the results. The energy-flux identity is evaluated on closed-form Case-H harmonic fields with the sign convention of Appendix~\ref{app:energy_flux}, comparing the cycle-averaged energy flux with a central-difference group velocity for the transverse and longitudinal acoustic branches along several in-plane directions; it holds to $6.91\times10^{-10}$. The supplementary material (Sec.~S3) gives the check definitions and expanded diagnostics.
 
 We assess mesh convergence for homogeneous Case~H on uniform $n\times n$ BFS grids, $n\in\{4,8,16,32\}$, at fixed $\bmk=(0.31\pi/L,0.22\pi/L)$. Figure~\ref{fig:mesh_convergence} shows the acoustic-frequency error relative to the closed-form value and the change between successive meshes. The fitted empirical rate is $p=4.17$ (95\% CI $[3.15,5.20]$) over the $4^2$, $8^2$, and $16^2$ levels. The reported $32^2$ result is resolution-limited and is excluded from the fit. This rate is empirical; it is not a theoretical-order claim. The operational mesh-change floor is $\varepsilon_\Delta=4.63\times10^{-11}$ and is distinct from eigensolver reproducibility. The smallest positive sampled directional separation across the 42-configuration design map, $\Delta_{GX}=1.3\times10^{-3}$ (at $\mathrm{AR}=5$, $\theta=0^\circ$; see Table~\ref{tab:gap_summary}), exceeds the floor by approximately $3\times10^7$.
 
-\begin{figure}[htbp]
+\begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig05_mesh_convergence.pdf}
-\caption{Case-H mesh study for the acoustic branch. (a) Relative frequency error versus element size; the $32^2$ result is shown as resolution-limited and is not included in the empirical fit. (b) Successive-mesh change and the operational mesh-change floor $\varepsilon_\Delta$.}
+\caption{Case-H mesh study for the acoustic branch. (a) Relative frequency error versus element size; the $32^2$ result is shown as resolution-limited and is not included in the empirical fit. (b) Successive-mesh change and the operational mesh-change floor $\varepsilon_\Delta$}
 \label{fig:mesh_convergence}
-\end{figure}
+\end{figure*}
 
-\begin{table}[htbp]
-\centering
-\caption{Analytical and numerical consistency checks. All rows except the energy-flux identity assess the Bloch finite-element implementation directly; the energy-flux identity is a closed-form continuum check evaluated on exact Case-H harmonic fields (see text), not a check of the finite-element eigenvectors.}
+\begin{table*}[htbp]
+\begin{center}
+\begin{threeparttable}
+\tablebodyfont
+\caption{Analytical and numerical consistency checks. All rows except the energy-flux identity assess the Bloch finite-element implementation directly; the energy-flux identity is a closed-form continuum check evaluated on exact Case-H harmonic fields (see text), not a check of the finite-element eigenvectors}
 \label{tab:consistency_suite}
 \input{tables/tab04_consistency_suite.tex}
-\end{table}
+\end{threeparttable}
+\end{center}
+\end{table*}
 
-Selected Case-H and Case-C inputs appear with the Results. The supplementary material (Secs.~S1--S4) contains the full parameter summary, external-comparison details, and extended convergence diagnostics.
+Selected Case-H and Case-C inputs appear in Table~\ref{tab:case_params}. The supplementary material (Secs.~S1--S4) contains the full parameter summary, external-comparison details, and extended convergence diagnostics.
