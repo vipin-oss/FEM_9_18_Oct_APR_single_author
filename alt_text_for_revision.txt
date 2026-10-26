@@ -1,0 +1,33 @@
+Figure 1: Two-panel plot comparing area-preserving ellipses at increasing aspect ratios and the components of the rotated characteristic-length tensor across orientation. The off-diagonal component changes sign with rotation and reaches a negative extreme at 45 degrees.
+
+Figure 2: Schematic of a square periodic lattice beside its first Brillouin zone. The zone diagram marks the Gamma, X, and M points and the Gamma-X-M-Gamma path used for the dispersion calculations.
+
+Figure 3: Diagram of the 32-degree-of-freedom Bogner-Fox-Schmit element and its periodic boundary coupling. Each displacement component has four nodal degrees of freedom, and the Bloch phase multiplies both displacement and derivative variables.
+
+Figure 4: Two plots assess acoustic-branch mesh convergence in homogeneous Case H. Frequency error and successive-mesh change decrease with refinement; the 32-by-32 result is marked resolution-limited and excluded from the empirical rate fit.
+
+Table I: Numerical consistency checks report small residuals for operator Hermiticity, Brillouin-zone periodicity, isotropic rotation, acoustic slopes, and rotation-swap symmetry. The energy-flux comparison is identified separately as a closed-form continuum check.
+
+Figure 5: Case-H dispersion curves compare an isotropic reference with aligned and diagonal anisotropy. The diagonal orientation produces a narrow separation along Gamma-X, while the plotted bands do not show a complete gap.
+
+Figure 6: Line plots show the first four Case-H frequencies at the X and M points as the characteristic-length orientation varies for aspect ratio five. The M-point curves are symmetric about 45 degrees.
+
+Figure 7: Case-H frequencies at X and M are plotted against aspect ratio from one to ten at fixed 45-degree orientation. The branches shift nonlinearly as the anisotropy increases.
+
+Figure 8: Three-dimensional design map of the sampled Gamma-X directional separation over characteristic-length orientation and aspect ratio. The largest sampled value occurs at zero degrees and aspect ratio seven.
+
+Figure 9: Polar map classifies sampled Case-H configurations by whether the Gamma-X directional separation is positive or nonpositive. The displayed boundary summarizes sampled points rather than a continuous optimization result.
+
+Table II: Material and numerical inputs summarize density, elastic moduli, characteristic lengths, geometry, frequency scale, and resolution for the homogeneous Case-H model, epoxy-YBCO Case-C composite, and acoustic-branch steering calculations.
+
+Table III: Directional, path, and complete-gap measures are compared for representative homogeneous configurations. Some Gamma-X values are positive, but the complete-gap values remain negative across the listed cases.
+
+Figure 10: Case-C dispersion bands show a gap between the third and fourth branches for the epoxy-YBCO cell, alongside gap width versus inclusion radius. The plotted reference mesh is coarse, and the gap is not mesh-converged.
+
+Figure 11: Two polar plots show acoustic-branch group-velocity deviation from the wave-vector direction and group-velocity magnitude at fixed wavenumber. The largest sampled angular deviation is about 2.78 degrees for aspect ratio ten.
+
+Figure 12: Orientation sweep shows that the peak steering deviation remains nearly constant while its principal direction changes with the rotated tensor. A second map compares the deviation fields at zero and 90 degrees and shows mirror co-symmetry.
+
+Table IV: Steering data list peak group-velocity deviation and principal direction across sampled orientations for aspect ratios five and ten. Peak deviations are constant to the shown precision, while the reported directions are sampled on a five-degree angular grid.
+
+Figure 13: Two plots show the gradient-energy fraction increasing with wavenumber and compare transverse-branch phase velocity with and without gradient micro-inertia. Only the branch analyzed approaches the displayed finite high-wavenumber limit.

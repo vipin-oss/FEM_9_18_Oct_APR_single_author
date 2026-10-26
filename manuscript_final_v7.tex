@@ -1,0 +1,81 @@
+\documentclass[aip,preprint,amsmath,amssymb,superscriptaddress]{revtex4-2}
+
+% AIP's generic REVTeX 4.2 submission format is used for Applied Physics Reviews.
+% The journal does not have a separate REVTeX class option.
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% Barred and bold notation macros
+\newcommand{\bmx}{\bm{x}}
+\newcommand{\bmk}{\bm{k}}
+\newcommand{\bmu}{\bm{u}}
+\newcommand{\bmv}{\bm{v}}
+\newcommand{\bmK}{\bm{K}}
+\newcommand{\bmM}{\bm{M}}
+\newcommand{\bmB}{\bm{B}}
+\newcommand{\bmR}{\bm{R}}
+\newcommand{\bmT}{\bm{T}}
+\newcommand{\bmC}{\bm{C}}
+\newcommand{\barw}{\bar{\omega}}
+\newcommand{\bark}{\bar{k}}
+\newcommand{\ellbar}{\bar{\ell}_{\mathrm{i}}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\iu}{\mathrm{i}}
+
+\begin{document}
+
+\title{Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast}
+
+\author{Vipin Gupta}
+\email{vipin@gurugramuniversity.ac.in}
+\affiliation{Department of Mathematics, Gurugram University, Gurugram-122505, India}
+
+\begin{abstract}
+This paper investigates direction-dependent wave dispersion in two-dimensional strain-gradient elasticity when the wavelength approaches an intrinsic material length scale. The formulation combines a rotated ellipsoidal characteristic-length tensor, defined by the orientation $\theta$ and aspect ratio $\mathrm{AR}$, with local Mindlin Form-II elasticity and independent gradient micro-inertia. The Bloch--Floquet problem is discretized using a conforming 32-degree-of-freedom Bogner--Fox--Schmit element, with the Bloch phase applied consistently to displacement and derivative degrees of freedom. In the homogeneous case, orientation and aspect ratio modify the dispersion branches and produce a directional spectral separation along $\Gamma$--$X$. Its maximum value is 0.0677 at zero orientation and $\mathrm{AR}=7$. The complete-gap measure remains negative for all sampled configurations, with maximum orientation sensitivity at $\mathrm{AR}=10$. This separation is a reduced-zone property of the homogeneous medium and does not represent Bragg attenuation. On the acoustic branch, rotation of the characteristic-length tensor deflects the group velocity from the wave vector by up to $2.78^\circ$. The peak deviation remains invariant to within $10^{-5}$ degrees over the sampled orientations. In contrast, the heterogeneous epoxy--YBCO cell exhibits a positive complete Bragg gap of 43.94\% on the coarsest mesh. The gap narrows systematically with refinement and remains mesh-unconverged. Gradient micro-inertia bounds the high-wavenumber phase speed of the branch considered. The results show that orientation controls the direction of energy transport in a homogeneous strain-gradient medium, whereas complete attenuation requires material contrast.
+\end{abstract}
+
+\maketitle
+
+\input{sections/sec01_intro}
+\input{sections/sec02_continuum}
+\input{sections/sec03_bloch}
+\input{sections/sec04_fem}
+\input{sections/sec05_verification}
+\input{sections/sec06_results}
+\input{sections/sec07_steering}
+\input{sections/sec08_discussion}
+\input{sections/sec09_conclusions}
+
+% AIP requires this section after the Conclusions; the detailed supporting
+% document is compiled and uploaded separately as Supplementary Material.
+\section*{Supplementary Material}
+The supplementary material provides the complete parameter summary, extended transfer-matrix comparisons and their validation limits, expanded numerical consistency and mesh-convergence diagnostics, and additional Case-C gap-resolution data.
+
+\section*{Acknowledgments}
+Vipin Gupta acknowledges the Haryana State Higher Education Council (HSHEC), Government of Haryana, for support through the Haryana State Research Fund (HSRF) scheme (Sanction Letter No.~14/66-2026 SPD/HSHEC/HSRF-38).
+
+\section*{Author Contributions}
+Vipin Gupta: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing~--~original draft, Writing~--~review and editing, Visualization, and Funding acquisition.
+
+\section*{Conflict of Interest}
+The author declares no competing interests.
+
+\section*{Ethics Approval}
+Ethics approval was not required because this theoretical and computational study involved no human participants or animals.
+
+\section*{Data Availability Statement}
+The data that support the findings of this study are available within the article.
+
+\appendix
+\input{sections/appA_asymptotics}
+\input{sections/appB_energy_flux}
+
+\bibliographystyle{aipnum4-2}
+\bibliography{references_final_v7}
+
+\end{document}

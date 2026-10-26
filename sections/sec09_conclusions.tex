@@ -1,0 +1,22 @@
+\section{Conclusions}
+\label{sec:conclusions}
+\sloppy
+
+This work analyzed orientation-dependent Bloch dispersion in two-dimensional strain-gradient elasticity by combining a rotated ellipsoidal characteristic-length tensor with local Mindlin Form-II gradient elasticity and independent gradient micro-inertia, discretized with a conforming 32-degree-of-freedom BFS element that applies the Bloch phase to both displacement and derivative degrees of freedom.
+
+The main findings are as follows:
+\begin{itemize}
+  \item In homogeneous Case~H, aspect ratio and orientation shift the zone-edge branches and can open a directional spectral separation along selected directions, but the complete-gap measure remains negative: with no material contrast the effect is a reduced-zone one, and orientation-based tuning provides spectral separation rather than complete attenuation.
+
+  \item At fixed area, varying aspect ratio redistributes the principal length scales, and the sampled directional gap responds non-monotonically. The largest sampled $\Delta_{GX}=0.0677$ occurs at $\theta=0^\circ$, $\mathrm{AR}=7$; this identifies a design point in the evaluated set, not a continuous optimum.
+
+  \item On the acoustic branch, rotating the tensor moves the steering lobes while the peak deviation remains nearly unchanged over the sampled orientations. For the evaluated ring and aspect ratios, orientation selects the energy-flow direction rather than increasing the sampled peak steering magnitude.
+
+  \item Periodic epoxy--YBCO contrast in Case~C yields a positive complete gap between Bands~3 and~4 on every computed finite-element mesh, but its width narrows under refinement. The reported coarse-mesh width is therefore resolution-specific and is not a converged continuum estimate.
+
+  \item For the transverse branch studied, gradient micro-inertia gives a finite high-wavenumber phase-speed limit of $0.3162$. This result is specific to the branch and constitutive model; it is not a bound established for other branches or formulations.
+
+  \item All eight tabulated consistency checks are satisfied, including the energy-flux/group-velocity identity. The heterogeneous-literature comparisons remain qualitative, so the evidence supports the reported within-model trends rather than external agreement for the two-dimensional bands.
+\end{itemize}
+
+The formulation is directly applicable to analyzing orientation- and aspect-ratio-dependent directional dispersion and group-velocity steering in homogeneous strain-gradient media, and to complete-gap design in physically periodic, material-contrast media of the kind studied in Case~C. Extending the complete-gap result in Case~C to a mesh-converged estimate is the most direct next step; three-dimensional generalization of the characteristic-length tensor and element would require a corresponding $C^1$ volumetric discretization.
