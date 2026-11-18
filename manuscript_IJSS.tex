@@ -44,6 +44,8 @@ Wave propagation in strain-gradient elastic solids depends on the orientation of
 Strain-gradient elasticity \sep Wave dispersion \sep Group velocity \sep Gradient micro-inertia \sep Bloch--Floquet analysis \sep Periodic composites
 \end{keyword}
 \end{frontmatter}
+% Use parenthetical author--date citations for in-text bibliography commands.
+\let\cite\citep
 \input{sections/sec01_intro}
 \input{sections/sec02_continuum}
 \input{sections/sec03_bloch}
@@ -68,6 +70,8 @@ Vipin Gupta: Conceptualization, Methodology, Software, Validation, Formal analys
 \section*{Declaration of generative AI and AI-assisted technologies}
 AI-assisted tools were used for language editing and journal-specific formatting. The author reviewed the resulting text and remains responsible for the content.
 \appendix
+% Elsarticle otherwise produces 'Appendix Appendix A' in explicit prose.
+\renewcommand{\thesection}{\Alph{section}}
 \input{sections/appA_asymptotics}
 \input{sections/appB_energy_flux}
 \bibliographystyle{elsarticle-harv}
