@@ -1,0 +1,30 @@
+name: Build IJSS manuscript PDF
+on:
+  push:
+    branches:
+      - ijss-submission-prep-2026-11
+    paths:
+      - 'manuscript_IJSS.tex'
+      - 'sections/**'
+      - 'tables/**'
+      - 'figures/**'
+      - 'references_final_v7.bib'
+      - '.github/workflows/build-ijss-pdf.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: manuscript_IJSS.tex
+          latexmk_use_xelatex: false
+          args: -pdf -bibtex -interaction=nonstopmode -halt-on-error -file-line-error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: IJSS_Manuscript_PDF
+          path: manuscript_IJSS.pdf
+          if-no-files-found: error

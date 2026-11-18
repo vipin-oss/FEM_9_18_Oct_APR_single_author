@@ -1,74 +1,48 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper,top=0.78in,bottom=0.78in,left=0.9in,right=0.9in]{geometry}
-\usepackage{amsmath,amssymb,bm}
-\usepackage{enumitem}
+\usepackage[a4paper,top=0.70in,bottom=0.70in,left=0.84in,right=0.84in]{geometry}
 \usepackage[hidelinks]{hyperref}
-
-\linespread{1.06}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
 \pagestyle{empty}
-
 \begin{document}
+\noindent\textbf{Vipin Gupta}\\
+Department of Mathematics, Gurugram University\\
+Gurugram 122505, Haryana, India\\
+\href{mailto:vipin@gurugramuniversity.ac.in}{vipin@gurugramuniversity.ac.in}\\
+ORCID: 0000-0002-5238-1963
 
-% Sender academic header
-\noindent
-\begin{minipage}[t]{0.54\textwidth}
-\textbf{\large Vipin Gupta}\\
-Department of Mathematics\\
-Gurugram University, Gurugram-122505, Haryana, India
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.44\textwidth}
-\raggedleft
-E-mail: \href{mailto:vipin@gurugramuniversity.ac.in}{\texttt{vipin@gurugramuniversity.ac.in}}\\
-ORCID: \href{https://orcid.org/0000-0002-5238-1963}{\texttt{0000-0002-5238-1963}}\\
+\medskip
 \today
-\end{minipage}
 
-\vspace{4pt}
-\noindent\rule{\textwidth}{0.6pt}
-\vspace{4pt}
+\medskip
+Editor-in-Chief\\
+\textit{International Journal of Solids and Structures}\\
+Elsevier
 
-% Recipient block
-\noindent
-\textbf{Prof.\ Peter Wriggers}\\
-Editor-in-Chief, \textit{Computational Mechanics}\\
-Springer Nature
+\medskip
+\textbf{Subject:} Original research article submission
 
-\vspace{4pt}
-\noindent
-\textbf{Subject:} Submission of Original Research Article to \textit{Computational Mechanics}
+Dear Editor,
 
-\vspace{4pt}
-\noindent Dear Prof.\ Wriggers,
+I submit the single-author manuscript entitled \textbf{\textquotedblleft Directional Wave Dispersion and Energy-Flow Steering in Two-Dimensional Strain-Gradient Elastic Solids\textquotedblright} for consideration as an original research article in the \textit{International Journal of Solids and Structures}.
 
-I respectfully submit the manuscript entitled \textbf{``Orientation-Dependent Dispersion and Wave Steering in Two-Dimensional Strain-Gradient Elasticity: Directional Spectral Separation versus Complete Bragg Gaps under Material Contrast''} for consideration as an Original Research Article in \textit{Computational Mechanics}.
+\textbf{Fit with the journal's aims and scope.}
 
-\textbf{Computational formulation and verification.}
-Higher-order strain-gradient elastodynamics requires $C^1$-continuous displacement fields together with phase-consistent periodic coupling of both displacements and spatial derivatives. In this manuscript, I formulate and verify a two-dimensional Bloch--Floquet finite-element framework combining a rotated ellipsoidal characteristic-length tensor $\bm{L}(\theta,\mathrm{AR})$, local Mindlin Form-II strain-gradient elasticity, and independent gradient micro-inertia, discretized with a conforming 32-degree-of-freedom Bogner--Fox--Schmit bicubic Hermite element. Bloch phase factors are enforced across unit-cell boundaries on the full Hermite nodal state (values, first derivatives, and mixed second derivatives), and branch continuity across symmetry crossings is tracked using a micro-inertia-weighted Modal Assurance Criterion. An eight-part verification suite confirms machine-precision Hermiticity, reciprocal-lattice periodicity, orientation/swap symmetries, closed-form dispersion recovery with an empirical convergence rate $p = 4.17$ down to eigensolver reproducibility, bounded high-wavenumber phase speeds under micro-inertia, and agreement between central-difference group velocity and cycle-averaged higher-order Poynting energy flux to $6.91\times 10^{-10}$.
+The journal publishes original research on the mechanics of solids and structures, including fundamental mathematical and numerical approaches, micro- and nano-mechanics, and architected and lattice materials. The submitted study addresses the elastodynamics of a higher-order elastic solid rather than band-gap optimisation alone. It examines how the orientation and aspect ratio of intrinsic material lengths alter the dispersion relation and the direction of elastic energy transport. The governing model, its higher-order finite-element formulation, and the group-velocity analysis concern the mechanical response of solids with microstructural length scales. The separate periodic-composite example connects the continuum model to wave propagation in a material-contrast microstructure. Thus, the paper directly addresses size-dependent constitutive response and wave mechanics in solids, which fall within the journal's stated scope.
 
-\textbf{Principal findings and numerical transparency.}
-The study separates wave phenomena governed by tensor orientation in a homogeneous strain-gradient continuum from those requiring periodic material contrast:
-\begin{enumerate}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
-  \item In the homogeneous medium (Case~H), rotating and elongating $\bm{L}(\theta,\mathrm{AR})$ produces a directional spectral separation along $\Gamma$--$X$ (up to $0.0677$ at $\theta=0^\circ$, $\mathrm{AR}=7$), whereas the complete-gap metric remains strictly negative across all 42 sampled $(\theta,\mathrm{AR})$ configurations, establishing that homogeneous directional separation is a reduced-zone folding property rather than Bragg attenuation.
-  \item On the acoustic branch, rotation of the characteristic-length tensor steers the cycle-averaged energy flux relative to the wave vector by up to $2.7846^\circ$ ($\mathrm{AR}=10$), with the peak steering angle remaining invariant to within $10^{-5}$ degrees across orientation.
-  \item Introducing periodic epoxy--YBCO material contrast (Case~C) opens a positive complete Bragg band gap across all tested meshes ($4\times 4$ through $64\times 64$, up to $33{,}800$ DOFs). Because the circular inclusion interface cuts through structured Cartesian elements without interface-fitted sub-triangulation, the complete gap narrows monotonically from $2.5732$ ($4\times 4$) to $1.9179$ ($64\times 64$) with successive decrement ratios of $0.552$--$0.565$ (Supplementary Material, Table~S4). Both this non-fitted quadrature limitation and the resulting mesh-unconverged gap sequence are explicitly disclosed.
-\end{enumerate}
+\textbf{Novelty and scientific contribution.}
 
-\textbf{Disclosure of related work.}
-For full editorial transparency, a separate manuscript by me addressing static boundary-value formulations in strain-gradient finite elements (Ref.\ \texttt{FINEL-D-26-00692R1}) is currently under revision at \textit{Finite Elements in Analysis \& Design}. That static study does not address Bloch--Floquet elastodynamic dispersion, gradient micro-inertia, higher-order Poynting energy-flux wave steering, or periodic phononic band-gap analysis, and shares no figures, tables, or numerical datasets with the present submission.
+The principal contribution is a joint analysis of directional strain-gradient stiffness, independent gradient micro-inertia, and energy-flow steering in a two-dimensional Bloch setting. A rotated ellipsoidal characteristic-length tensor is incorporated into a local Mindlin Form-II model, while displacement and derivative degrees of freedom are coupled consistently across periodic boundaries using a conforming Bogner--Fox--Schmit element. The results separate two physically different effects: a homogeneous solid develops direction-dependent reduced-zone spectral separation but no complete Bragg gap, whereas a periodically contrasted composite shows a complete gap on the computed meshes. The homogeneous acoustic group velocity deviates from the wave vector by up to $2.78^\circ$; rotating the length tensor redirects the steering lobes without substantially changing their peak deviation. Analytical limits and numerical consistency checks support these findings. The composite-gap width is not yet mesh-converged, and this limitation is stated explicitly. The novelty lies in the coupled mechanics and the distinction between these spectral mechanisms, not in claiming that the established BFS interpolation is a new general-purpose finite element algorithm.
 
-\textbf{Submission declarations.}
-I confirm that this manuscript is original, has not been published previously, and is not under consideration for publication elsewhere. A separate Supplementary Material file (\texttt{Supplementary\_Material.pdf}) is attached alongside the manuscript. Thank you very much for considering this manuscript for \textit{Computational Mechanics}.
+\textbf{Related work and editorial transparency.}
 
-\vspace{6pt}
-\noindent Sincerely,
+A separate article on static strain-gradient finite-element boundary-value problems (FINEL-D-26-00692) has been accepted in \textit{Finite Elements in Analysis \& Design}. The present manuscript instead studies elastodynamic Bloch dispersion and energy transport. Earlier editorial records concerning this wave-propagation manuscript must be closed before submission to IJSS; the author will confirm exclusive consideration in the submission portal after that check.
 
-\vspace{14pt}
-\noindent
+Thank you for considering the manuscript.
+
+Sincerely,
+
 \textbf{Vipin Gupta}\\
-Corresponding Author, Department of Mathematics, Gurugram University, India
-
+Corresponding author
 \end{document}
