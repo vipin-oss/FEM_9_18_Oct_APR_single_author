@@ -2,6 +2,7 @@ name: Build IJSS manuscript PDF
 on:
   push:
     branches:
+      - main
       - ijss-submission-prep-2026-11
     paths:
       - 'manuscript_IJSS.tex'
