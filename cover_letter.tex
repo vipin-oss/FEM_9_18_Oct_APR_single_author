@@ -1,66 +1,48 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper,top=0.78in,bottom=0.78in,left=0.9in,right=0.9in]{geometry}
-\usepackage{amsmath,amssymb,bm}
-\usepackage{enumitem}
+\usepackage[a4paper,margin=0.93in]{geometry}
 \usepackage[hidelinks]{hyperref}
-
-\linespread{1.06}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
+\setlength{\parskip}{7pt}
 \pagestyle{empty}
-
 \begin{document}
+\noindent\textbf{Vipin Gupta}\\
+Department of Mathematics, Gurugram University\\
+Gurugram 122505, Haryana, India\\
+\href{mailto:vipin@gurugramuniversity.ac.in}{vipin@gurugramuniversity.ac.in}\\
+ORCID: 0000-0002-5238-1963
 
-% Sender academic header
-\noindent
-\begin{minipage}[t]{0.54\textwidth}
-\textbf{\large Vipin Gupta}\\
-Department of Mathematics\\
-Gurugram University, Gurugram-122505, Haryana, India
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.44\textwidth}
-\raggedleft
-E-mail: \href{mailto:vipin@gurugramuniversity.ac.in}{\texttt{vipin@gurugramuniversity.ac.in}}\\
-ORCID: \href{https://orcid.org/0000-0002-5238-1963}{\texttt{0000-0002-5238-1963}}\\
+\medskip
 \today
-\end{minipage}
 
-\vspace{4pt}
-\noindent\rule{\textwidth}{0.6pt}
-\vspace{4pt}
-
-% Recipient block
-\noindent
-\textbf{Editor-in-Chief}\\
+\medskip
+Editor-in-Chief\\
 \textit{International Journal of Solids and Structures}\\
 Elsevier
 
-\vspace{4pt}
-\noindent
-\textbf{Subject:} Submission of Original Research Article to \textit{International Journal of Solids and Structures}
+\medskip
+\textbf{Subject:} Original research article submission
 
-\vspace{4pt}
-\noindent Dear Editor,
+Dear Editor,
 
-I respectfully submit the manuscript entitled \textbf{``Directional Wave Dispersion and Energy-Flow Steering in Two-Dimensional Strain-Gradient Elastic Solids''} for consideration as an Original Research Article in \textit{International Journal of Solids and Structures}.
+I submit the single-author manuscript entitled \textbf{\textquotedblleft Directional Wave Dispersion and Energy-Flow Steering in Two-Dimensional Strain-Gradient Elastic Solids\textquotedblright} for consideration as an original research article in the \textit{International Journal of Solids and Structures}.
 
-\textbf{Scope and contribution.}
-The manuscript concerns wave dispersion and energy-flow steering in two-dimensional Mindlin Form-II strain-gradient elasticity with rotated intrinsic length scales and gradient micro-inertia. A conforming Bloch finite-element implementation resolves homogeneous directional spectral separation and group-velocity steering. A periodic material-contrast example exhibits a complete gap on computed meshes; its lack of mesh convergence is expressly acknowledged. The emphasis is on the mechanics and interpretation of wave propagation, rather than a claim to a new general-purpose finite-element algorithm.
+\textbf{Fit with the journal's aims and scope.}
 
-\textbf{Disclosure of related work.}
-For full editorial transparency, a separate manuscript by me addressing static boundary-value formulations in strain-gradient finite elements (Ref.\ \texttt{FINEL-D-26-00692R1}) is currently under revision at \textit{Finite Elements in Analysis \& Design}. That static study does not address Bloch--Floquet elastodynamic dispersion, gradient micro-inertia, higher-order Poynting energy-flux wave steering, or periodic phononic band-gap analysis, and shares no figures, tables, or numerical datasets with the present submission.
+The journal publishes original research on the mechanics of solids and structures, including fundamental mathematical and numerical approaches, micro- and nano-mechanics, and architected and lattice materials. The submitted study addresses the elastodynamics of a higher-order elastic solid rather than band-gap optimisation alone. It examines how the orientation and aspect ratio of intrinsic material lengths alter the dispersion relation and the direction of elastic energy transport. The governing model, its higher-order finite-element formulation, and the group-velocity analysis concern the mechanical response of solids with microstructural length scales. The separate periodic-composite example connects the continuum model to wave propagation in a material-contrast microstructure. Thus, the paper directly addresses size-dependent constitutive response and wave mechanics in solids, which fall within the journal's stated scope.
 
-\textbf{Submission declarations.}
-I confirm that the manuscript is original. It will be submitted here only after all earlier submissions of this same work have been closed or formally withdrawn. A separate Supplementary Material file (\texttt{Supplementary\_Material.pdf}) is attached alongside the manuscript. Thank you very much for considering this manuscript for \textit{International Journal of Solids and Structures}.
+\textbf{Novelty and scientific contribution.}
 
-\vspace{6pt}
-\noindent Sincerely,
+The principal contribution is a joint analysis of directional strain-gradient stiffness, independent gradient micro-inertia, and energy-flow steering in a two-dimensional Bloch setting. A rotated ellipsoidal characteristic-length tensor is incorporated into a local Mindlin Form-II model, while displacement and derivative degrees of freedom are coupled consistently across periodic boundaries using a conforming Bogner--Fox--Schmit element. The results separate two physically different effects: a homogeneous solid develops direction-dependent reduced-zone spectral separation but no complete Bragg gap, whereas a periodically contrasted composite shows a complete gap on the computed meshes. The homogeneous acoustic group velocity deviates from the wave vector by up to $2.78^\circ$; rotating the length tensor redirects the steering lobes without substantially changing their peak deviation. Analytical limits and numerical consistency checks support these findings. The composite-gap width is not yet mesh-converged, and this limitation is stated explicitly. The novelty lies in the coupled mechanics and the distinction between these spectral mechanisms, not in claiming that the established BFS interpolation is a new general-purpose finite element algorithm.
 
-\vspace{14pt}
-\noindent
+\textbf{Related work and editorial transparency.}
+
+A separate article on static strain-gradient finite-element boundary-value problems (FINEL-D-26-00692) has been accepted in \textit{Finite Elements in Analysis \& Design}. The present manuscript instead studies elastodynamic Bloch dispersion and energy transport. Earlier editorial records concerning this wave-propagation manuscript must be closed before submission to IJSS; the author will confirm exclusive consideration in the submission portal after that check.
+
+Thank you for considering the manuscript.
+
+Sincerely,
+
 \textbf{Vipin Gupta}\\
-Corresponding Author, Department of Mathematics, Gurugram University, India
-
+Corresponding author
 \end{document}
