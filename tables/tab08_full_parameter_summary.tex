@@ -1,15 +1,26 @@
-% Alt text (retained in alt_text_for_revision.txt): Parameter groups summarize the homogeneous and composite models, mesh and sampling choices, and three external bilayer examples. Source-unit ambiguity and missing comparison parameters are explicitly noted.
-\begin{longtblr}[
-  caption = {Complete parameter summary for the homogeneous, composite, and transfer-matrix calculations},
-  label = {tab:s1_parameters},
-]{
-  width = \textwidth,
-  colspec = {Q[l,wd=2.2cm] Q[l,wd=3.2cm] X[l]},
-  rowhead = 1,
-  row{1} = {font=\bfseries},
-  hline{1,2,Z} = {0.08em},
-}
+% Full-width multipage parameter table. Uses standard longtable for stable Overleaf rendering.
+\begingroup
+\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{0.11\textwidth}p{0.25\textwidth}p{0.58\textwidth}@{}}
+\caption{Complete parameter summary for the homogeneous, composite, and transfer-matrix calculations}\label{tab:s1_parameters}\\
+\toprule
 Study & Parameter group & Values used \\
+\midrule
+\endfirsthead
+\caption[]{Complete parameter summary (continued)}\\
+\toprule
+Study & Parameter group & Values used \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\footnotesize Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
 Case H & Cell and base material & $L=1.0\,\mathrm{m}$; $\lambda=\mu=1.0\,\mathrm{Pa}$; $\rho=1.0\,\mathrm{kg/m^3}$ \\
 Case H & Gradient and inertia lengths & $l_{\mathrm{iso}}=0.20\,\mathrm{m}$; $\ell_{\mathrm{i}}=0.20\,\mathrm{m}$ ($\ell_{\mathrm{i}}^2=0.04\,\mathrm{m^2}$) \\
 Case H & Anisotropy scaling & Volume-equivalent axes $l_1=l_{\mathrm{iso}}\sqrt{\mathrm{AR}}$ and $l_2=l_{\mathrm{iso}}/\sqrt{\mathrm{AR}}$; $\mathrm{AR}\in\{1,2,3,5,7,10\}$ \\
@@ -32,4 +43,5 @@ B2 & Published gradient parameters & Printed values $l=10^{-5}$, $l_1=2\times10^
 B2 & Interpretations evaluated & Dimensional micro-scale ($a=l=10^{-5}\,\mathrm{m}$); dimensional 1-cm layer ($a=0.01\,\mathrm{m}$, $l=10^{-5}\,\mathrm{m}$); and normalized-length reading ($\bar l=10^{-5}$). These yield different curves; B2 is not externally validated \\
 B3 & Pb/brass material and thickness & $a_1=a_2=10\,\mu\mathrm{m}$; $\mu_1=2.3\times10^{10}\,\mathrm{Pa}$; $\rho_1=7500\,\mathrm{kg/m^3}$; $\mu_2=1.288\times10^9\,\mathrm{Pa}$; $\rho_2=1177.5\,\mathrm{kg/m^3}$ \cite{li2023anchorA} \\
 B3 & Gradient, inertia, and frequency scale & $c_1/a_1^2=0.15$; $d_1/a_1=0.25$; $c_2/c_1=d_2/d_1=1.5$; $\omega_{0,B3}=4.114\times10^8\,\mathrm{rad/s}$; the first-layer ratios are inherited from the paper's comparison example, not reported on the plotted panel \\
-\end{longtblr}
+\end{longtable}
+\endgroup
