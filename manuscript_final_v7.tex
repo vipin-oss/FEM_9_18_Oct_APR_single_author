@@ -1,9 +1,4 @@
-\documentclass[pdflatex,sn-basic,Numbered,iicol]{sn-jnl}
-
-% Springer Nature LaTeX template configured for Computational Mechanics (Journal ID 466):
-% - [iicol] selects the two-column layout required by Computational Mechanics
-% - [sn-basic,Numbered] formats square-bracket numbered citations [1], [1-3, 7] with full DOI URLs
-% Note: sn-jnl.cls preloads hyperref, appendix, amsthm, natbib, rotating, and threeparttable.
+\documentclass[pdflatex,sn-basic,Numbered]{sn-jnl}
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -20,7 +15,7 @@
 % the full 76 mm column width in [iicol] mode so tags never collide.
 \setlength{\mathindent}{0pt}
 \hypersetup{hypertexnames=false}
-
+\geometry{text={160mm,216mm}}
 % Barred and bold notation macros
 \newcommand{\bmx}{\bm{x}}
 \newcommand{\bmk}{\bm{k}}
