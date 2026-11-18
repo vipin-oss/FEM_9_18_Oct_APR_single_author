@@ -1,0 +1,5 @@
+- Rotated characteristic lengths control direction-dependent dispersion.
+- Bloch conditions apply to displacement and derivative degrees of freedom.
+- Homogeneous spectral separations do not imply complete attenuation.
+- The acoustic energy flow deviates from the wave vector by up to 2.78 degrees.
+- A contrast-induced complete gap remains mesh-unconverged.
