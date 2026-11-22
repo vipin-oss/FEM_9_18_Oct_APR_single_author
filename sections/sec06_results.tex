@@ -1,15 +1,14 @@
 \section{Results: dispersion, band gaps, and wave steering}
 \label{sec:results}
 
-For Case~H, all directional and complete-gap measures ($\Delta_{GX}$, $\Delta_{XM}$, $\Delta_{MG}$, $\Delta_{\mathrm{path}}$, $\Delta_{\mathrm{complete}}$) refer to Bands~2--3. The isotropic material is the baseline for the length-tensor sweeps. Case~C has periodic material contrast, and we treat it separately. Appendix~\ref{app:parameter_summary} lists its complete inputs.
-
+All directional and complete-gap measures  ($\Delta_{GX}$, $\Delta_{XM}$, $\Delta_{MG}$, $\Delta_{\mathrm{path}}$, $\Delta_{\mathrm{complete}}$)are relative to Bands~2--3 for Case~H. The sweeps for the length-tensor are based on the isotropic material. Case~C is a case with periodic material contrast, which is treated separately. It has a number of inputs, all of which are listed in Appendix~\ref{app:parameter_summary}.
 \subsection{Homogeneous isotropic baseline}
-At $\mathrm{AR}=1$, the two principal lengths are equal. The length tensor is then isotropic, and the response does not depend on $\theta$. This case is the reference for the anisotropic runs. Figure~\ref{fig:caseH_dispersion} plots the reference branches next to the anisotropic ones. The reference $\Gamma$--$X$ directional width is $\Delta_{GX}=0.041$.
+When the $\mathrm{AR}=1$,both the major and minor lengths are the same. The length tensor is then isotropic and the response is independent of $\theta$. This case is used for the anisotropic runs. The reference branches are plotted with figure~\ref{fig:caseH_dispersion} next to the anisotropic branches. The reference $\Gamma$--$X$ directional width is $\Delta_{GX}=0.041$.
 
-\subsection{Anisotropy reshapes the Case-H branches}
-Figure~\ref{fig:caseH_dispersion} compares the isotropic reference with the anisotropic tensor at two orientations. Both acoustic branches start at zero frequency at $\Gamma$. Changing the aspect ratio and orientation shifts the branches and lifts symmetry-related degeneracies at the zone edge. At $\mathrm{AR}=10$ and $\theta=45^\circ$, a narrow reduced-zone spectral separation appears along $\Gamma$--$X$, with $\Delta_{GX}=0.0043$. Modes in other directions overlap this interval, so it is not a complete gap. The full-zone measure stays at $\Delta_{\mathrm{complete}}\le -0.3235$.
+\subsection{The Case-H branches are distorted by anisotropy.}
+The comparison of the isotropic reference vs the anisotropic tensor at two orientations is shown in Figure~\ref{fig:caseH_dispersion}. The two acoustic branches have a common origin at $\Gamma$ at zero frequency. The branches and the symmetry related degeneracies at the zone edge are affected by the change of aspect ratio and the orientation. At $\mathrm{AR}=10$ and $\theta=45^\circ$, a narrow reduced-zone spectral separation appears along $\Gamma$--$X$, with $\Delta_{GX}=0.0043$.This interval is not a complete gap as modes exist in other directions. The full-zone measure stays at $\Delta_{\mathrm{complete}}\le -0.3235$.
 
-The directional shifts come from the projection of the rotated length tensor onto the propagation direction.
+The direction changes are due to the projection of the rotated length tensor onto the propagation direction.
 
 \begin{figure*}[htbp]
 \centering
@@ -79,7 +78,7 @@ Under mesh refinement, the complete gap falls from $2.5732$ at $4\times4$ to $2.
 
 \subsection{Group-velocity steering}
 \label{sec:steering}
-On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$, anisotropy makes the group velocity non-collinear with the wave vector. The direction of $\bmv_g=\nabla_{\bmk}\omega$ follows the local slope of the constant-frequency contour. Figure~\ref{fig:ifc_wave_steering} plots the angular deviation $\delta(\phi)=\angle\bmv_g-\angle\bmk$ and group-velocity magnitude at $\theta=45^\circ$. The peak deviation rises from $0^\circ$ at $\mathrm{AR}=1$ to $1.4146^\circ$ at $\mathrm{AR}=5$ and $2.7846^\circ$ at $\mathrm{AR}=10$. The magnitude $|\bmv_g|$ also varies around the contour. Anisotropic dispersion therefore changes the speed of energy transport as well as its direction.
+On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$ anisotropy causes the group velocity to be non-collinear with the wave vector. The direction of $\bmv_g=\nabla_{\bmk}\omega$ is on the local slope of constant-frequency contour. Figure~\ref{fig:ifc_wave_steering} plots the angular deviation $\delta(\phi)=\angle\bmv_g-\angle\bmk$ and group-velocity magnitude at $\theta=45^\circ$. The peak deviation rises from $0^\circ$ at $\mathrm{AR}=1$ to $1.4146^\circ$ at $\mathrm{AR}=5$ and $2.7846^\circ$ at $\mathrm{AR}=10$.  The contour also has variation in the magnitude of the vector $\bmv_g$. Anisotropic dispersion thus affects the direction of energy transport as well as the speed of energy transport.
 
 \begin{figure*}[htbp]
 \centering
@@ -88,7 +87,7 @@ On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$, anisotropy makes the group
 \label{fig:ifc_wave_steering}
 \end{figure*}
 
-The orientation sweep uses $\theta=0^\circ,15^\circ,\ldots,90^\circ$ at $\mathrm{AR}=5$ and $10$ (Figure~\ref{fig:s7_steering_sweep}; Table~\ref{tab:steering_sweep}). We sample directions on the wavenumber ring every $5^\circ$, and a local parabola refines the estimated peak. The fitted peaks stay within $10^{-5}\,$deg of $1.4146^\circ$ and $2.7846^\circ$, respectively. This tolerance reflects the interpolation, not the physical angular accuracy. The principal direction follows $\phi^*(\theta)\simeq(45^\circ-\theta)\bmod90^\circ$. At $\mathrm{AR}=10$, its excursions are at most $5^\circ$. Rotating the tensor moves the steering lobes, but the sampled maximum deviation hardly changes.
+The orientation sweep uses $\theta=0^\circ,15^\circ,\ldots,90^\circ$ at $\mathrm{AR}=5$ and $10$ (Figure~\ref{fig:s7_steering_sweep}; Table~\ref{tab:steering_sweep}).Directions are sampled every $5^\circ$ along the wavenumber ring and a local parabola is used to improve the estimated peak. The fitted peaks stay within $10^{-5}\,$deg of $1.4146^\circ$ and $2.7846^\circ$, respectively. This tolerance is for the interpolation and not the actual angular accuracy. The main direction is approximately $\phi^*(\theta)\simeq(45^\circ-\theta)\bmod90^\circ$. At $\mathrm{AR}=10$,  its excursions are at most $5^\circ$. The maximum deviation is not significantly affected by a change in the orientation of the tensor; the sampled maximum deviation is not significantly affected by a change in the orientation of the tensor.
 
 \begin{figure*}[htbp]
 \centering
