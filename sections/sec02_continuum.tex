@@ -2,18 +2,18 @@
 \label{sec:continuum}
 
 \subsection{Ellipsoidal characteristic-length tensor}
-Isotropic gradient elasticity commonly uses one characteristic length $l$. To represent an oriented microstructure in plane strain, we instead define an elliptical in-plane averaging region $\mathcal{E}_0$ with semi-axes $l_1$ and $l_2$:
+Isotropic gradient elasticity commonly uses one characteristic length $l$. For an oriented microstructure in plane strain, we define instead an elliptical in-plane averaging region $\mathcal{E}_0$ with semi-axes $l_1$ and $l_2$:
 \begin{equation}
 \mathcal{E}_0 = \left\{ (x_1', x_2') \in \mathbb{R}^2 \;\middle|\; \frac{(x_1')^2}{l_1^2} + \frac{(x_2')^2}{l_2^2} \le 1 \right\},
 \label{eq:ellipse_def}
 \end{equation}
-The coordinates $(x_1',x_2')$ follow the principal directions of the ellipse. In those coordinates, the length tensor is defined using the squared semi-axes rather than the normalized covariance of a uniformly filled ellipse:
+The coordinates $(x_1',x_2')$ lie along the principal directions of the ellipse. In these coordinates the length tensor uses the squared semi-axes. It does not use the normalized covariance of a uniformly filled ellipse:
 \begin{equation}
 \mathbf{L}_0 = \begin{bmatrix} l_1^2 & 0 \\ 0 & l_2^2 \end{bmatrix}.
 \label{eq:L0_mat}
 \end{equation}
 
-The ellipse retains the same area when its aspect ratio changes. With $l_{\mathrm{iso}}>0$ as the isotropic reference length, this condition gives:
+The ellipse area stays the same when the aspect ratio changes. With $l_{\mathrm{iso}}>0$ as the isotropic reference length, this condition gives:
 \begin{equation}
 \begin{split}
 l_1 &= l_{\mathrm{iso}}\sqrt{\mathrm{AR}}, \quad l_2 = \frac{l_{\mathrm{iso}}}{\sqrt{\mathrm{AR}}}, \\
@@ -22,7 +22,7 @@ l_1 &= l_{\mathrm{iso}}\sqrt{\mathrm{AR}}, \quad l_2 = \frac{l_{\mathrm{iso}}}{\
 \end{split}
 \label{eq:volume_equivalent}
 \end{equation}
-Here $\mathrm{AR}=l_1/l_2\ge1$. The factor $1/10$ comes from the second moment of the three-dimensional solid-ellipsoid averaging domain. We retain this factor throughout the formulation, including the plane-strain reduction. At $l_1=l_2$, the law reduces to the scalar-length form used in the constitutive and stiffness expressions below.
+Here $\mathrm{AR}=l_1/l_2\ge1$. The factor $1/10$ is the second-moment factor of the three-dimensional solid-ellipsoid averaging domain. We retain this factor throughout the formulation, including the plane-strain reduction. At $l_1=l_2$, the law reduces to the scalar-length form used in the constitutive and stiffness expressions below.
 
 \subsubsection{Orientation convention and passive rotation}
 We take positive $\theta$ to denote a clockwise orientation of the principal axes relative to the global frame $(x_1,x_2)$. The passive map from global coordinates $\bmx$ to local principal coordinates $\bmx'$ is:

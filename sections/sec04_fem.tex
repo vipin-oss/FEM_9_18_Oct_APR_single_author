@@ -15,7 +15,7 @@ where $a \in \{1, 2, 3, 4\}$ indexes the four element vertices, and $p \in \{1, 
 \bm{d}_{i, a}^e = \begin{bmatrix} u_i & \frac{\partial u_i}{\partial x} & \frac{\partial u_i}{\partial y} & \frac{\partial^2 u_i}{\partial x \partial y} \end{bmatrix}^\mathsf{T}_{\text{at node } a}.
 \label{eq:nodal_dof_vector}
 \end{equation}
-Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Their Bloch-phase mapping is shown in Figure~\ref{fig:bfs_dof}. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h=L/n=0.0625$ and $8n^2=2048$ independent degrees of freedom per cell. The count $8n^2$ refers to the independent degrees of freedom after Bloch reduction. The Case-C mesh data use the assembled count $8(N+1)^2$ before reduction.
+Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Their Bloch-phase mapping is shown in Figure~\ref{fig:bfs_dof}. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h=L/n=0.0625$ and $8n^2=2048$ independent degrees of freedom per cell. Here $8n^2$ counts the independent degrees of freedom after Bloch reduction. The Case-C mesh data instead use the assembled count $8(N+1)^2$ before reduction.
 
 \begin{figure*}[htbp]
 \centering
@@ -33,12 +33,12 @@ The strain tensor $\bm\varepsilon$ and strain-gradient tensor $\bm\eta$ within e
 \end{split}
 \label{eq:strain_matrices}
 \end{equation}
-The element stiffness matrix $\bmK^e$ is the sum of classical and gradient contributions:
+The element stiffness matrix $\bmK^e$ has a classical part and a gradient part:
 \begin{equation}
 \bmK^e = \bmK^c + \bmK^g(\theta, \mathrm{AR}),
 \label{eq:Ke_total}
 \end{equation}
-where the classical stiffness matrix is:
+The classical stiffness matrix is:
 \begin{equation}
 \bmK^c = \int_{\Omega_e} (\bmB^c)^\mathsf{T} \bmC \bmB^c \,\dif\Omega,
 \label{eq:Kc_int}
@@ -48,7 +48,7 @@ and the anisotropic gradient stiffness matrix is:
 \bmK^g(\theta, \mathrm{AR}) = \frac{1}{10} \sum_{k=1}^2 \sum_{l=1}^2 L_{kl}(\theta) \int_{\Omega_e} (\bmB^g_k)^\mathsf{T} \bmC \bmB^g_l \,\dif\Omega.
 \label{eq:Kg_int}
 \end{equation}
-For a homogeneous element, the bicubic basis produces stiffness and mass integrands of degree at most six in either coordinate. Four Gauss--Legendre points integrate polynomials through degree seven exactly; a $4\times4$ rule is therefore sufficient. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. Elements intersected by the inclusion are integrated using sub-cell Gauss sampling with an $O(h)$ geometric approximation.
+In a homogeneous element, the stiffness and mass integrands have degree at most six in each coordinate. Four Gauss--Legendre points integrate polynomials up to degree seven exactly. A $4\times4$ rule is therefore enough. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. Elements intersected by the inclusion are integrated using sub-cell Gauss sampling with an $O(h)$ geometric approximation.
 
 \subsubsection{Mass and micro-inertia matrices}
 The kinetic energy gives the classical and micro-inertia mass contributions:
@@ -67,19 +67,19 @@ with:
 Both $\bmM_0$ and $\bmM^g$ are symmetric and positive semi-definite; their sum $\bmM^e$ is strictly positive definite for any positive density $\rho > 0$.
 
 \subsection{Bloch reduction and eigenproblem}
-We partition the global degrees of freedom $\bm{d}$ into interior ($I$), master-boundary ($M$), and slave-boundary ($S$) sets to impose the Bloch conditions on $\partial\Omega_{\mathrm{cell}}$:
+To impose the Bloch conditions on $\partial\Omega_{\mathrm{cell}}$, the global degrees of freedom $\bm{d}$ are split into interior ($I$), master-boundary ($M$) and slave-boundary ($S$) sets:
 \begin{equation}
 \bm{d} = \begin{bmatrix} \bm{d}_I \\ \bm{d}_M \\ \bm{d}_S \end{bmatrix}.
 \label{eq:d_partition}
 \end{equation}
-The Bloch transformation relates the slave DOFs on the top and right boundaries to the corresponding master DOFs on the bottom and left boundaries:
+The Bloch transformation links the slave DOFs on the top and right boundaries to the master DOFs on the bottom and left boundaries:
 \begin{equation}
 \bm{d}_S = \bmT_{SM}(\bmk) \bm{d}_M,
 \label{eq:slave_master_rel}
 \end{equation}
-where $\bmT_{SM}(\bmk)$ is a diagonal complex phase matrix formed by evaluating $e^{\iu k_x L}$, $e^{\iu k_y L}$, or $e^{\iu (k_x + k_y)L}$ for each periodic node pair. Displacement and derivative degrees of freedom use the same phase multiplier.
+Here $\bmT_{SM}(\bmk)$ is a diagonal complex phase matrix. Its entries are $e^{\iu k_x L}$, $e^{\iu k_y L}$ or $e^{\iu (k_x + k_y)L}$ for each periodic node pair. Displacement and derivative degrees of freedom share the same phase multiplier.
 
-In the continuous weak form, natural boundary work cancels between opposite cell faces. The effective traction $p_i^{\mathrm{dyn}}$ carries the Bloch phase and changes sign with the outward normal; its test trace carries the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ also carries the Bloch phase but is unchanged when the normal reverses, while its work-conjugate normal derivative changes sign. These signs and phases cancel both face integrals. Line and corner terms pair under the same translations, including the product phase $e^{\iu(k_x+k_y)L}$ at the corner; no separate free-boundary condition is imposed on a Bloch-paired face.
+In the continuous weak form, the natural boundary work cancels between opposite cell faces. The effective traction $p_i^{\mathrm{dyn}}$ carries the Bloch phase and changes sign with the outward normal. Its test trace carries the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ also carries the Bloch phase, but it keeps its sign when the normal reverses. Its work-conjugate normal derivative changes sign. Together, these signs and phases cancel both face integrals. Line and corner terms pair under the same translations. At the corner, the product phase $e^{\iu(k_x+k_y)L}$ appears. No separate free-boundary condition is imposed on a Bloch-paired face.
 
 We collect these relations in the master--slave transformation matrix $\bmT(\bmk)$:
 \begin{equation}
@@ -89,7 +89,7 @@ We collect these relations in the master--slave transformation matrix $\bmT(\bmk
 \end{split}
 \label{eq:T_bloch}
 \end{equation}
-The reduced stiffness and mass matrices follow from Galerkin projection:
+Galerkin projection gives the reduced stiffness and mass matrices:
 \begin{equation}
 \begin{split}
 \bar{\bmK}(\bmk) &= \bmT(\bmk)^\mathsf{H} \bmK \bmT(\bmk), \\
@@ -104,7 +104,7 @@ We obtain the dispersion curves $\barw_n(\bmk)$ from the reduced generalized eig
 \left[ \bar{\bmK}(\bmk) - \omega^2 \bar{\bmM}(\bmk) \right] \bar{\bm{d}} = \bm{0}.
 \label{eq:eigenproblem}
 \end{equation}
-Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so this subblock is unitary. The full transformation $\bmT(\bmk)$ has full column rank and is rectangular; unlike its diagonal phase subblock, it is not unitary. For positive elastic and inertial parameters, the full-cell matrices satisfy $\bmK\succeq 0$ and $\bmM\succ 0$; the reduced operators are therefore Hermitian:
+Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so this subblock is unitary. The full matrix $\bmT(\bmk)$ is rectangular with full column rank. Unlike the phase subblock, it is not unitary. For positive elastic and inertial parameters, the full-cell matrices satisfy $\bmK\succeq 0$ and $\bmM\succ 0$; the reduced operators are therefore Hermitian:
 \begin{equation}
 \begin{split}
 \bar{\bmK}(\bmk)^\mathsf{H} &= \bar{\bmK}(\bmk) \succeq 0, \\
@@ -115,11 +115,11 @@ Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so
 The generalized eigenvalues $\omega_n^2$ are therefore real and nonnegative. Shifting $\bmk$ by a reciprocal-lattice vector $\bm{G}$ leaves every Bloch phase unchanged, so the reduced stiffness and mass matrices satisfy $\bar{\bmK}(\bmk + \bm{G}) = \bar{\bmK}(\bmk)$ and $\bar{\bmM}(\bmk + \bm{G}) = \bar{\bmM}(\bmk)$. The spectrum is periodic across reciprocal space.
 
 \subsubsection{Branch tracking}
-Modes with different spatial symmetries can cross along high-symmetry paths. We track their identity between adjacent wave vectors using the Modal Assurance Criterion (MAC) at $\bmk_1$ and $\bmk_2$. Let $\bm{d}_m(\bmk)=\bmT(\bmk)\bar{\bm{d}}_m(\bmk)$ be the corresponding full-cell eigenvector, and let $\bmM$ be the common, assembled full-cell mass matrix, including gradient micro-inertia. The cross-wavevector MAC is
+Modes of different spatial symmetry can cross along high-symmetry paths. To follow a mode between adjacent wave vectors, we use the Modal Assurance Criterion (MAC) at $\bmk_1$ and $\bmk_2$. Let $\bm{d}_m(\bmk)=\bmT(\bmk)\bar{\bm{d}}_m(\bmk)$ be the full-cell eigenvector. Let $\bmM$ be the common assembled full-cell mass matrix, which includes gradient micro-inertia. The cross-wavevector MAC is
 \begin{equation}
 {\small
 \mathrm{MAC}_{mn}(\bmk_1,\bmk_2) = \frac{\left| \bm{d}_m(\bmk_1)^\mathsf{H} \bmM \bm{d}_n(\bmk_2) \right|^2}{\left( \bm{d}_m(\bmk_1)^\mathsf{H} \bmM \bm{d}_m(\bmk_1) \right) \left( \bm{d}_n(\bmk_2)^\mathsf{H} \bmM \bm{d}_n(\bmk_2) \right)}
 }
 \label{eq:mac_def}
 \end{equation}
-The MAC uses the common full-cell mass matrix. Comparing reduced eigenvectors directly would be inappropriate because their mass matrix depends on $\bmk$. If the off-diagonal MAC indicates a branch exchange, the continuation step is halved. Band gaps are computed from the frequency-ordered eigenvalues $\barw_1(\bmk) \le \barw_2(\bmk) \le \dots \le \barw_N(\bmk)$, independently of the mode labels assigned during tracking.
+The MAC uses the common full-cell mass matrix because the reduced mass matrix depends on $\bmk$. A direct comparison of reduced eigenvectors would therefore be inconsistent. If the off-diagonal MAC indicates a branch exchange, the continuation step is halved. Band gaps are computed from the frequency-ordered eigenvalues $\barw_1(\bmk) \le \barw_2(\bmk) \le \dots \le \barw_N(\bmk)$, independently of the mode labels assigned during tracking.
