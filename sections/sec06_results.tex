@@ -1,7 +1,7 @@
 \section{Results: dispersion, band gaps, and wave steering}
 \label{sec:results}
 
-The homogeneous isotropic solid serves as the reference for the orientation and aspect-ratio sweeps. The results then address the periodic composite, group-velocity steering and the high-wavenumber response. Case~H is a homogeneous medium analyzed on a periodic cell that carries no material contrast, so a positive $\Delta_{GX}$ is a reduced-zone spectral separation of that medium and not a Bragg attenuation gap of a physically periodic one. Case~C does carry periodic contrast and therefore supports a genuine complete band gap. Unless otherwise stated, every reported Case-H directional and complete-gap measure ($\Delta_{GX}$, $\Delta_{XM}$, $\Delta_{MG}$, $\Delta_{\mathrm{path}}$, $\Delta_{\mathrm{complete}}$) is evaluated on the Bands~2--3 pair. Table~\ref{tab:case_params} lists selected inputs; the full parameter set is in Appendix~\ref{app:parameter_summary}.
+The homogeneous isotropic solid serves as the reference for the orientation and aspect-ratio sweeps. The results then address the periodic composite, group-velocity steering and the high-wavenumber response. Case~H contains no periodic material contrast. Its positive $\Delta_{GX}$ values describe reduced-zone spectral separations, not Bragg attenuation gaps. Case~C contains periodic contrast and is examined separately for complete-gap formation. Unless otherwise stated, every reported Case-H directional and complete-gap measure ($\Delta_{GX}$, $\Delta_{XM}$, $\Delta_{MG}$, $\Delta_{\mathrm{path}}$, $\Delta_{\mathrm{complete}}$) is evaluated on the Bands~2--3 pair. Table~\ref{tab:case_params} lists selected inputs; the full parameter set is in Appendix~\ref{app:parameter_summary}.
 
 \subsection{Homogeneous isotropic baseline}
 At $\mathrm{AR}=1$, the principal characteristic lengths coincide and the rotated length tensor is isotropic, so its constitutive response is independent of $\theta$. It therefore provides the reference for the anisotropic calculations, and Figure~\ref{fig:caseH_dispersion} plots its branches alongside theirs; its $\Gamma$--$X$ directional width is $\Delta_{GX}=0.041$.
@@ -19,7 +19,7 @@ In this model, the rotated length tensor changes the gradient-stiffness contribu
 \end{figure*}
 
 \subsection{Aspect-ratio and orientation effects}
-Figure~\ref{fig:theta_sweep} shows the zone-edge frequencies as the tensor rotates. At $\mathrm{AR}=5$, as $\theta$ changes from $0^\circ$ to $90^\circ$, the transverse and longitudinal frequencies at $X$ fall from $2.915$ to $2.672$ and from $5.050$ to $4.628$, respectively, as the projected length scale shifts from the major to the minor axis. The $M$-point frequencies are symmetric about $45^\circ$, as expected from the square-cell symmetry.
+At $\mathrm{AR}=5$, rotating the tensor from $0^\circ$ to $90^\circ$ lowers the transverse frequency at $X$ from $2.915$ to $2.672$ and the longitudinal frequency from $5.050$ to $4.628$ (Figure~\ref{fig:theta_sweep}). The projected gradient length changes from the major to the minor direction. The $M$-point frequencies are symmetric about $45^\circ$, as expected from the square-cell symmetry.
 
 \begin{figure*}[htbp]
 \centering
@@ -38,10 +38,10 @@ Figure~\ref{fig:ar_sweep} isolates elongation at fixed $\theta=45^\circ$, using 
 \end{figure*}
 
 \subsection{Directional spectral separation}
-A positive $\Delta_{GX}$ marks a separation on the $\Gamma$--$X$ leg only: modes at other wave vectors still occupy the same frequency interval. The $\mathrm{AR}=10$, $\theta=45^\circ$ configuration makes the point, with $\Delta_{GX}=0.0043$ against a negative complete-gap measure, and every homogeneous configuration listed behaves the same way. Table~\ref{tab:gap_summary} reports the representative directional and complete-gap measures; Appendix~\ref{app:numerical_checks} gives normalized widths and mesh-to-mesh variations.
+The $\Gamma$--$X$ interval is not empty of modes over the entire Brillouin zone. For example, at $\mathrm{AR}=10$ and $\theta=45^\circ$, $\Delta_{GX}=0.0043$ but the complete-gap measure is negative. No homogeneous configuration listed has a complete gap. Table~\ref{tab:gap_summary} reports the representative directional and complete-gap measures; Appendix~\ref{app:numerical_checks} gives normalized widths and mesh-to-mesh variations.
 
 \subsection{Design-map interpretation}
-Across the 42 evaluated $(\theta,\mathrm{AR})$ configurations in Figure~\ref{fig:design_map}, the largest sampled $\Delta_{GX}=0.0677$ occurs at $(0^\circ,7)$. The response is non-monotone in aspect ratio. The plotted surface interpolates the evaluated points rather than a continuous optimum, and Figure~\ref{fig:polar_map} classifies the same samples by the sign of $\Delta_{GX}$. The orientation sensitivity $S_\theta$ is largest at $\mathrm{AR}=10$ ($2.34\,\mathrm{rad}^{-1}$).
+The largest $\Delta_{GX}$ among the 42 sampled designs is $0.0677$ at $(\theta,\mathrm{AR})=(0^\circ,7)$ (Figure~\ref{fig:design_map}). Its dependence on aspect ratio is not monotone. The surface is an interpolation of these designs, not evidence of a continuously optimized configuration. Figure~\ref{fig:polar_map} groups the samples by the sign of $\Delta_{GX}$. The orientation sensitivity $S_\theta$ is largest at $\mathrm{AR}=10$ ($2.34\,\mathrm{rad}^{-1}$).
 
 \begin{figure*}[htbp]
 \centering
@@ -66,7 +66,7 @@ Across the 42 evaluated $(\theta,\mathrm{AR})$ configurations in Figure~\ref{fig
 
 \subsection{Heterogeneous Case C: complete gap with periodic contrast}
 \label{sec:caseC_pc}
-Case~C combines gradient elasticity with a periodic epoxy--YBCO impedance contrast ($\chi_\mu=25.0$, $\chi_\rho=5.546$; Table~\ref{tab:case_params}), unlike homogeneous Case~H. We denote the cell period by $L$ in the text and $a$ in Figure~\ref{fig:caseC_dispersion}; $r_0/L=r_0/a=0.30$ gives a filling fraction of $28.27\%$. The circular interface is integrated by sub-cell Gauss sampling on the Cartesian mesh. Figure~\ref{fig:caseC_dispersion} shows a complete gap between Bands~3 and~4 over $\bar{\omega}\in[4.5698,7.1430]$. On the $4\times4$ mesh and $21\times21$ Brillouin-zone grid, $\Delta_{\mathrm{complete}}=2.5732$, or $43.94\%$. Brillouin-zone refinement changes the quoted width by less than $4\times10^{-4}$; finite-element refinement has a much larger effect.
+Case~C uses an epoxy--YBCO periodic cell with contrasts $\chi_\mu=25.0$ and $\chi_\rho=5.546$ (Table~\ref{tab:case_params}). We denote the cell period by $L$ in the text and $a$ in Figure~\ref{fig:caseC_dispersion}; $r_0/L=r_0/a=0.30$ gives a filling fraction of $28.27\%$. The circular interface is integrated by sub-cell Gauss sampling on the Cartesian mesh. Figure~\ref{fig:caseC_dispersion} shows a complete gap between Bands~3 and~4 over $\bar{\omega}\in[4.5698,7.1430]$. On the $4\times4$ mesh and $21\times21$ Brillouin-zone grid, $\Delta_{\mathrm{complete}}=2.5732$, or $43.94\%$. Refining the Brillouin-zone grid changes this width by less than $4\times10^{-4}$. Mesh refinement has a substantially larger effect.
 
 \begin{figure*}[htbp]
 \centering
@@ -79,7 +79,7 @@ Under mesh refinement, the complete gap falls from $2.5732$ at $4\times4$ to $2.
 
 \subsection{Group-velocity steering}
 \label{sec:steering}
-On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$, anisotropy makes the group velocity non-collinear with the wave vector. Since $\bmv_g=\nabla_{\bmk}\omega$ is normal to the local constant-frequency contours, their slope determines the angular departure of $\bmv_g$ from $\bmk$. Figure~\ref{fig:ifc_wave_steering} plots the angular deviation $\delta(\phi)=\angle\bmv_g-\angle\bmk$ and group-velocity magnitude at $\theta=45^\circ$. The peak deviation rises from $0^\circ$ at $\mathrm{AR}=1$ to $1.4146^\circ$ at $\mathrm{AR}=5$ and $2.7846^\circ$ at $\mathrm{AR}=10$. The magnitude $|\bmv_g|$ also varies around the contour, so the anisotropic dispersion changes the energy-transport speed as well as its direction.
+On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$, anisotropy makes the group velocity non-collinear with the wave vector. Group velocity is normal to the local constant-frequency contour because $\bmv_g=\nabla_{\bmk}\omega$. Its angle relative to $\bmk$ therefore depends on the contour slope. Figure~\ref{fig:ifc_wave_steering} plots the angular deviation $\delta(\phi)=\angle\bmv_g-\angle\bmk$ and group-velocity magnitude at $\theta=45^\circ$. The peak deviation rises from $0^\circ$ at $\mathrm{AR}=1$ to $1.4146^\circ$ at $\mathrm{AR}=5$ and $2.7846^\circ$ at $\mathrm{AR}=10$. The magnitude $|\bmv_g|$ also varies around the contour, so the anisotropic dispersion changes the energy-transport speed as well as its direction.
 
 \begin{figure*}[htbp]
 \centering
@@ -88,7 +88,7 @@ On the constant-wavenumber ring $|\bmk|=\bar{k}=0.5$, anisotropy makes the group
 \label{fig:ifc_wave_steering}
 \end{figure*}
 
-Figure~\ref{fig:s7_steering_sweep} and Table~\ref{tab:steering_sweep} report the orientation sweep $\theta\in\{0^\circ,15^\circ,\ldots,90^\circ\}$ for $\mathrm{AR}=5$ and $10$ on the same ring and acoustic branch, with the ring sampled at $5^\circ$ resolution and the reported peak refined by parabolic interpolation about the sampled maximum. Across the sampled orientations, the refined peak deviation varies by less than $10^{-5}\,$deg about $1.4146^\circ$ and $2.7846^\circ$, respectively; this measures the numerical invariance of the refinement procedure, not a $10^{-5}$-degree physical angular accuracy. The principal direction follows $\phi^*(\theta)\simeq(45^\circ-\theta)\bmod90^\circ$; at $\mathrm{AR}=10$, its excursions are at most $5^\circ$. These samples show that rotating the tensor repositions the steering lobes while leaving the peak angular deviation nearly unchanged; for this branch and ring, orientation chiefly redirects the group-velocity/energy-flow direction ($\bmv_g=\nabla_{\bmk}\omega$) rather than increasing its sampled maximum.
+The orientation sweep uses $\theta=0^\circ,15^\circ,\ldots,90^\circ$ at $\mathrm{AR}=5$ and $10$ (Figure~\ref{fig:s7_steering_sweep}; Table~\ref{tab:steering_sweep}). Directions on the wavenumber ring are sampled every $5^\circ$, and a local parabola refines the estimated peak. The refined peaks vary by less than $10^{-5}\,$deg around $1.4146^\circ$ and $2.7846^\circ$, respectively. This small variation reflects the numerical procedure; it should not be interpreted as physical angular accuracy to $10^{-5}$ degrees. The principal direction follows $\phi^*(\theta)\simeq(45^\circ-\theta)\bmod90^\circ$; at $\mathrm{AR}=10$, its excursions are at most $5^\circ$. For the branch and wavenumber ring examined, tensor rotation mainly changes the steering direction. It has little effect on the sampled maximum deviation.
 
 \begin{figure*}[htbp]
 \centering
