@@ -15,7 +15,7 @@ where $a \in \{1, 2, 3, 4\}$ indexes the four element vertices, and $p \in \{1, 
 \bm{d}_{i, a}^e = \begin{bmatrix} u_i & \frac{\partial u_i}{\partial x} & \frac{\partial u_i}{\partial y} & \frac{\partial^2 u_i}{\partial x \partial y} \end{bmatrix}^\mathsf{T}_{\text{at node } a}.
 \label{eq:nodal_dof_vector}
 \end{equation}
-Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Their Bloch-phase mapping is shown in Figure~\ref{fig:bfs_dof}. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h = L/n = 0.0625$ and $8 n^2 = 2048$ degrees of freedom per cell; Table~\ref{tab:case_params} lists the mesh size. The count $8n^2$ refers to the independent degrees of freedom after Bloch reduction. The Case-C resolution data in Appendix~\ref{app:caseC_resolution} instead use the assembled count $8(N+1)^2$ before reduction.
+Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Their Bloch-phase mapping is shown in Figure~\ref{fig:bfs_dof}. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h=L/n=0.0625$ and $8n^2=2048$ independent degrees of freedom per cell. The count $8n^2$ refers to the independent degrees of freedom after Bloch reduction. The Case-C mesh data use the assembled count $8(N+1)^2$ before reduction.
 
 \begin{figure*}[htbp]
 \centering
@@ -48,7 +48,7 @@ and the anisotropic gradient stiffness matrix is:
 \bmK^g(\theta, \mathrm{AR}) = \frac{1}{10} \sum_{k=1}^2 \sum_{l=1}^2 L_{kl}(\theta) \int_{\Omega_e} (\bmB^g_k)^\mathsf{T} \bmC \bmB^g_l \,\dif\Omega.
 \label{eq:Kg_int}
 \end{equation}
-For a homogeneous element, the bicubic basis produces stiffness and mass integrands of degree at most six in either coordinate. Four Gauss--Legendre points integrate polynomials through degree seven exactly; a $4\times4$ rule is therefore sufficient. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. In elements cut by the inclusion, the discontinuous material field is instead integrated by sub-cell Gauss sampling with an $O(h)$ geometric approximation (Section~\ref{sec:caseC_pc}).
+For a homogeneous element, the bicubic basis produces stiffness and mass integrands of degree at most six in either coordinate. Four Gauss--Legendre points integrate polynomials through degree seven exactly; a $4\times4$ rule is therefore sufficient. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. Elements intersected by the inclusion are integrated using sub-cell Gauss sampling with an $O(h)$ geometric approximation.
 
 \subsubsection{Mass and micro-inertia matrices}
 The kinetic energy gives the classical and micro-inertia mass contributions:
@@ -79,7 +79,7 @@ The Bloch transformation relates the slave DOFs on the top and right boundaries 
 \end{equation}
 where $\bmT_{SM}(\bmk)$ is a diagonal complex phase matrix formed by evaluating $e^{\iu k_x L}$, $e^{\iu k_y L}$, or $e^{\iu (k_x + k_y)L}$ for each periodic node pair. Displacement and derivative degrees of freedom use the same phase multiplier.
 
-In the continuous weak form, natural boundary work cancels between opposite cell faces. The effective traction $p_i^{\mathrm{dyn}}$ defined in Section~\ref{sec:continuum} carries the Bloch phase and changes sign with the outward normal; its test trace carries the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ also carries the Bloch phase but is unchanged when the normal reverses, while its work-conjugate normal derivative changes sign. These signs and phases cancel both face integrals. Line and corner terms pair under the same translations, including the product phase $e^{\iu(k_x+k_y)L}$ at the corner; no separate free-boundary condition is imposed on a Bloch-paired face.
+In the continuous weak form, natural boundary work cancels between opposite cell faces. The effective traction $p_i^{\mathrm{dyn}}$ carries the Bloch phase and changes sign with the outward normal; its test trace carries the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ also carries the Bloch phase but is unchanged when the normal reverses, while its work-conjugate normal derivative changes sign. These signs and phases cancel both face integrals. Line and corner terms pair under the same translations, including the product phase $e^{\iu(k_x+k_y)L}$ at the corner; no separate free-boundary condition is imposed on a Bloch-paired face.
 
 We collect these relations in the master--slave transformation matrix $\bmT(\bmk)$:
 \begin{equation}
