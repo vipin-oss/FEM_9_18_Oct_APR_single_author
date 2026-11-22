@@ -2,7 +2,7 @@
 \label{sec:bloch}
 
 \subsection{Square lattice and Bloch conditions}
-We generate the two-dimensional periodic medium by translating the square cell $\Omega_{\mathrm{cell}}=[0,L]\times[0,L]$ along
+The square cell $\Omega_{\mathrm{cell}}=[0,L]\times[0,L]$ is repeated along the lattice vectors
 \begin{equation}
 \bm{a}_1=\begin{bmatrix}L \\ 0\end{bmatrix},\qquad
 \bm{a}_2=\begin{bmatrix}0 \\ L\end{bmatrix}.
@@ -14,7 +14,7 @@ The corresponding reciprocal vectors satisfy $\bm{a}_i\cdot\bm{b}_j=2\pi\delta_{
 \bm{b}_2=\frac{2\pi}{L}\begin{bmatrix}0\\1\end{bmatrix}.
 \label{eq:reciprocal_vectors}
 \end{equation}
-The first Brillouin zone is $\mathcal{B}=[-\pi/L,\pi/L]^2$. For the isotropic square lattice, $C_{4v}$ symmetry permits the path $\Gamma(0,0)$--$X(\pi/L,0)$--$M(\pi/L,\pi/L)$--$\Gamma$. Anisotropy reduces the symmetry to $C_{2v}$ for $\theta=0^\circ$ or $90^\circ$, and to $C_2$ at general orientation; full-zone measures are therefore evaluated over the corresponding Brillouin zone. Figure~\ref{fig:lattice_ibz} shows the periodic square lattice and this high-symmetry $\Gamma$--$X$--$M$--$\Gamma$ contour.
+The first Brillouin zone is $\mathcal{B}=[-\pi/L,\pi/L]^2$. For the isotropic square lattice, $C_{4v}$ symmetry permits the path $\Gamma(0,0)$--$X(\pi/L,0)$--$M(\pi/L,\pi/L)$--$\Gamma$. For the orientations considered, the symmetry reduces to $C_{2v}$ at $\theta=0^\circ$ and $90^\circ$ and to $C_2$ otherwise. Complete-gap measures use the full Brillouin zone. Figure~\ref{fig:lattice_ibz} shows the periodic square lattice and this high-symmetry $\Gamma$--$X$--$M$--$\Gamma$ contour.
 
 \begin{figure*}[htbp]
 \centering
@@ -36,7 +36,7 @@ Because the approximation is $C^1$-conforming, differentiating the displacement 
 \end{split}
 \label{eq:bloch_derivatives}
 \end{equation}
-Thus displacement, first derivatives, and cross derivatives all take the same Bloch phase; a different phase for derivative degrees of freedom would break $C^1$ continuity across cell boundaries.
+The phase multiplier is the same for displacement, first derivatives and mixed derivatives. Using a different multiplier for derivative degrees of freedom would violate $C^1$ continuity at the cell boundary.
 
 \subsection{Nondimensionalization}
 For Case~H, I scale length, frequency, and velocity with the cell length $L$, shear modulus $\mu$, and density $\rho$:
@@ -76,12 +76,12 @@ At each wave vector, the eigenfrequencies are ordered as $\barw_1(\bmk)\le\barw_
   \label{eq:delta_complete}
   \end{equation}
 \end{enumerate}
-Since the leg, path, and full zone are nested sets, $\Delta[\mathrm{leg}]\ge\Delta[\mathrm{path}]\ge\Delta[\mathrm{complete}]$:
+The three sets are nested, giving the inequality
 \begin{equation}
 \Delta[\mathrm{leg}]\ge\Delta[\mathrm{path}]\ge\Delta[\mathrm{complete}].
 \label{eq:gap_hierarchy}
 \end{equation}
-A positive leg gap indicates a directional spectral separation along that path; for a homogeneous, materially-uncontrasted cell such as Case~H this is a reduced-zone effect, not physical wave filtering. A complete band gap requires $\Delta_{\mathrm{complete}}>0$.
+A positive leg gap concerns that path only. In homogeneous Case~H it reflects reduced-zone folding and does not imply physical attenuation. A complete band gap requires $\Delta_{\mathrm{complete}}>0$.
 
 The orientation sensitivity of a directional gap is measured by
 \begin{equation}
