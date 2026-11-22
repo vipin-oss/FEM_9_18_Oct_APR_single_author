@@ -1,0 +1,67 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{graphicx}
+\usepackage{booktabs,multirow,threeparttable}
+\usepackage{longtable,array}
+\usepackage{bm,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\emergencystretch=2em
+\newcommand{\bmx}{\bm{x}}
+\newcommand{\bmk}{\bm{k}}
+\newcommand{\bmu}{\bm{u}}
+\newcommand{\bmv}{\bm{v}}
+\newcommand{\bmK}{\bm{K}}
+\newcommand{\bmM}{\bm{M}}
+\newcommand{\bmB}{\bm{B}}
+\newcommand{\bmR}{\bm{R}}
+\newcommand{\bmT}{\bm{T}}
+\newcommand{\bmC}{\bm{C}}
+\newcommand{\barw}{\bar{\omega}}
+\newcommand{\bark}{\bar{k}}
+\newcommand{\ellbar}{\bar{\ell}_{\mathrm{i}}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\tablebodyfont}{\small}
+\newcommand{\bmhead}[1]{\subsection*{#1}}
+\journal{International Journal of Engineering Science}
+\begin{document}
+% Anonymous manuscript for double-anonymized review; title-page file uploaded separately.
+\begin{frontmatter}
+\title{Directional Wave Dispersion and Energy-Flow Steering in Two-Dimensional Strain-Gradient Elastic Solids}
+\begin{abstract}
+Wave propagation in strain-gradient elastic solids depends on the orientation of internal length scales and on the inertia law. This study examines two-dimensional dispersion and energy-flow steering using a rotated ellipsoidal characteristic-length tensor, local Mindlin Form-II elasticity, and independent gradient micro-inertia. The Bloch eigenproblem is discretized with a conforming Bogner--Fox--Schmit finite element, with phase continuity imposed on displacement and derivative degrees of freedom. In the homogeneous solid, orientation and aspect ratio modify dispersion and produce directional reduced-zone spectral separations, but no complete band gap. The largest separation among 42 sampled configurations is 0.0677. Acoustic group velocity deviates from the wave-vector direction by up to $2.78^\circ$, while tensor rotation changes the steering direction with little variation in the peak deviation. A separate periodic epoxy--YBCO composite exhibits a complete gap between its third and fourth bands on the computed meshes. The gap narrows with refinement, however, and its continuum width is not yet established. Analytical limits and numerical consistency checks support the homogeneous dispersion and steering results. The findings distinguish orientation-controlled energy transport in a homogeneous gradient solid from band-gap formation associated with periodic material contrast.
+\end{abstract}
+\begin{keyword}
+Strain-gradient elasticity \sep Wave dispersion \sep Group velocity \sep Gradient micro-inertia \sep Bloch--Floquet analysis \sep Periodic composites
+\end{keyword}
+\end{frontmatter}
+% Use parenthetical author--date citations for in-text bibliography commands.
+\let\cite\citep
+\input{sections/sec01_intro}
+\input{sections/sec02_continuum}
+\input{sections/sec03_bloch}
+\input{sections/sec04_fem}
+\input{sections/sec05_verification}
+\input{sections/sec06_results}
+\input{sections/sec07_steering}
+\input{sections/sec08_discussion}
+\input{sections/sec09_conclusions}
+\section*{Declaration of competing interest}
+The author declares no competing financial or non-financial interests.
+\appendix
+% Elsarticle otherwise produces 'Appendix Appendix A' in explicit prose.
+\renewcommand{\thesection}{\Alph{section}}
+\input{sections/appA_asymptotics}
+\input{sections/appB_energy_flux}
+\input{sections/appC_extended_checks}
+\bibliographystyle{elsarticle-harv}
+\bibliography{references_final_v7}
+\end{document}
