@@ -2,18 +2,18 @@
 \label{sec:continuum}
 
 \subsection{Ellipsoidal characteristic-length tensor}
-Isotropic gradient elasticity commonly uses one characteristic length $l$. For an oriented microstructure in plane strain, we define instead an elliptical in-plane averaging region $\mathcal{E}_0$ with semi-axes $l_1$ and $l_2$:
+Isotropic gradient elasticity commonly uses one characteristic length $l$.For an oriented microstructure in plane strain, we now consider an in-plane averaging area $\mathcal{E}_0$ in the form of an ellipse of semi-axes $l_1$ and $l_2$ :
 \begin{equation}
 \mathcal{E}_0 = \left\{ (x_1', x_2') \in \mathbb{R}^2 \;\middle|\; \frac{(x_1')^2}{l_1^2} + \frac{(x_2')^2}{l_2^2} \le 1 \right\},
 \label{eq:ellipse_def}
 \end{equation}
-The coordinates $(x_1',x_2')$ lie along the principal directions of the ellipse. In these coordinates the length tensor uses the squared semi-axes rather than the normalised covariance of a uniformly filled ellipse:
+The points $(x_1',x_2')$ are on the principal directions of the ellipse. The length tensor in these coordinates is defined by the squared semi-axes instead of the normalised covariance of a uniformly filled ellipse:
 \begin{equation}
 \mathbf{L}_0 = \begin{bmatrix} l_1^2 & 0 \\ 0 & l_2^2 \end{bmatrix}.
 \label{eq:L0_mat}
 \end{equation}
 
-We keep the ellipse area fixed as the aspect ratio changes. With $l_{\mathrm{iso}}>0$ as the isotropic reference length, this condition gives:
+As the aspect ratio of the ellipse changes, the area of the ellipse remains fixed. With $l_{\mathrm{iso}}>0$ as the isotropic reference length, this condition gives:
 \begin{equation}
 \begin{split}
 l_1 &= l_{\mathrm{iso}}\sqrt{\mathrm{AR}}, \quad l_2 = \frac{l_{\mathrm{iso}}}{\sqrt{\mathrm{AR}}}, \\
@@ -22,7 +22,7 @@ l_1 &= l_{\mathrm{iso}}\sqrt{\mathrm{AR}}, \quad l_2 = \frac{l_{\mathrm{iso}}}{\
 \end{split}
 \label{eq:volume_equivalent}
 \end{equation}
-Here $\mathrm{AR}=l_1/l_2\ge1$. The factor $1/10$ is the second-moment factor of the three-dimensional solid-ellipsoid averaging domain. We keep this factor throughout the formulation, including in the plane-strain reduction. At $l_1=l_2$, the law reduces to the scalar-length form used in the constitutive and stiffness expressions below.
+Here $\mathrm{AR}=l_1/l_2\ge1$. The second moment factor of the three-dimensional averaging domain is an ellipsoid solid is $1/10$. This is a factor that is maintained throughout the process of the formulation, and in the case of the plane strain reduction. The law below is the scalar-length form used for the constitutive and stiffness expressions at $l_1=l_2$.
 
 \subsubsection{Orientation convention and passive rotation}
 We take positive $\theta$ to denote a clockwise orientation of the principal axes relative to the global frame $(x_1,x_2)$. The passive map from global coordinates $\bmx$ to local principal coordinates $\bmx'$ is:
@@ -114,12 +114,12 @@ The model has four useful physical limits:
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{Classical elasticity limit ($l_{\mathrm{iso}} \to 0$ at fixed finite $\mathrm{AR}$, $\ell_{\mathrm{i}} \to 0$):} Both principal gradient lengths and the double stresses vanish, and the classical Navier equations $\sigma_{ij,j}=\rho\ddot u_i$ are recovered with dispersionless acoustic speeds $c_T=\sqrt{\mu/\rho}$ and $c_L=\sqrt{(\lambda+2\mu)/\rho}$.
   \item \textbf{Isotropic gradient elasticity ($\mathrm{AR} = 1$):} Here $l_1 = l_2 = l_{\mathrm{iso}}$, so $L_{11} = L_{22} = l_{\mathrm{iso}}^2$ and $L_{12} = 0$ for all $\theta$, recovering isotropic Form-II gradient elasticity.
-  \item \textbf{Gradient elasticity without micro-inertia ($\ell_{\mathrm{i}} = 0$):} The higher-order stiffness remains, but the inertial correction vanishes. For the transverse branch, $v_p\propto k$ as $k\to\infty$.
+  \item \textbf{Gradient elasticity without micro-inertia ($\ell_{\mathrm{i}} = 0$):} The higher order stiffness is reserved, while the inertial correction is gone. For the transverse branch, $v_p\propto k$ as $k\to\infty$.
   \item \textbf{Quarter-turn covariance:} For fixed $l_1,l_2$, a $90^\circ$ change of orientation interchanges the diagonal components and reverses the sign of the off-diagonal component: $L_{11}(\theta+90^\circ)=L_{22}(\theta)$, $L_{22}(\theta+90^\circ)=L_{11}(\theta)$, and $L_{12}(\theta+90^\circ)=-L_{12}(\theta)$.
 \end{enumerate}
 
 \subsection{Boundary operators}
-Let $\Gamma=\partial\Omega$ be a smooth boundary with unit outward normal $\bm n$. For the strain-energy term, integration by parts gives the boundary contribution
+Suppose that the boundary $\Gamma=\partial\Omega$ is smooth and has the unit outward normal $\bm n$. The boundary contribution comes from the strain-energy term integrated by parts.
 \begin{equation}
 \begin{split}
 \left.\delta\int_\Omega W\,\dif\Omega\right|_\Gamma
@@ -136,4 +136,4 @@ p_i^{\mathrm{el}} &= (\sigma_{ij}-\tau_{ijk,k})n_j - \nabla_j^S(n_k\tau_{ijk}),
 \end{split}
 \label{eq:traction_def}
 \end{equation}
-where $\nabla_j^S$ denotes the surface divergence acting on the tangential projection of $n_k\tau_{ijk}$. Additional line forces arise at boundary edges. The gradient micro-inertia adds $\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$ to the dynamic traction, so $p_i^{\mathrm{dyn}}=p_i^{\mathrm{el}}+\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$. The work-conjugate pairs are $(u_i,p_i^{\mathrm{dyn}})$ and $(\partial u_i/\partial n,R_i)$. The paired cell faces satisfy Bloch phase conditions rather than independent free-boundary conditions.
+where $\nabla_j^S$ denotes the surface divergence on the tangential component of $n_k\tau_{ijk}$. Additional line forces arise at boundary edges. The gradient micro-inertia adds $\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$ to the dynamic traction, so $p_i^{\mathrm{dyn}}=p_i^{\mathrm{el}}+\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$. The work-conjugate pairs are $(u_i,p_i^{\mathrm{dyn}})$ and $(\partial u_i/\partial n,R_i)$. The paired cell faces do not meet independent free-boundary conditions, but rather Bloch phase conditions.
