@@ -1,7 +1,7 @@
 \section{Time-Averaged Energy Flux in Form-II Gradient Elasticity}
 \label{app:energy_flux}
 
-This appendix derives the conservation of elastodynamic energy and the explicit form of the time-averaged Poynting-type energy flux vector $\bm{S}$ in a Mindlin Form-II gradient-elastic solid with micro-inertia.
+The energy balance and cycle-averaged mechanical flux are derived here for the Mindlin Form-II solid with gradient micro-inertia.
 
 The local balance of mechanical energy is expressed by the continuity relation:
 \begin{equation}
@@ -45,7 +45,7 @@ S_j &= -(\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i - \tau_{ikj} \dot{u}_{i,k} \\
 \end{split}
 \label{eq:appB_S_instant}
 \end{equation}
-The terms in Eq.~\eqref{eq:appB_S_instant} describe classical traction power modified by the double-stress divergence, double-stress power acting on velocity gradients, and a micro-inertial term.
+The flux in Eq.~\eqref{eq:appB_S_instant} contains the effective traction power, the work of double stresses on velocity gradients, and the micro-inertial contribution.
 
 For time-harmonic fields represented in complex notation $\bmu(\bmx, t) = \mathrm{Re}[\tilde{\bmu}(\bmx) e^{-\iu \omega t}]$, the cycle-averaged energy flux $\langle S_j \rangle = \frac{1}{\mathcal{T}}\int_0^{\mathcal{T}} S_j\,\dif t$ is given by:
 \begin{equation}
@@ -62,4 +62,4 @@ Integrating over the unit cell $\Omega_{\mathrm{cell}}$, the cycle-averaged ener
 \bm{v}_g = \frac{\langle \bm{S} \rangle}{\langle W \rangle + \langle T \rangle},
 \label{eq:appB_vg_identity}
 \end{equation}
-This identity relates the group velocity $\bm{v}_g = \nabla_{\bmk}\omega$ to the cell-averaged energy flux and stored energy. Table~\ref{tab:consistency_suite} lists a group-velocity/energy-flux residual of $6.91\times10^{-10}$. It is obtained from closed-form Case-H harmonic fields evaluated with the sign convention of Eq.~\eqref{eq:appB_S_cycle}, comparing the cycle-averaged flux $\langle\bm{S}\rangle/(\langle W\rangle+\langle T\rangle)$ against a central-difference estimate of $\nabla_{\bmk}\omega$ for both acoustic branches and multiple in-plane directions.
+The ratio of mean flux to mean stored energy gives the group velocity $\bm{v}_g=\nabla_{\bmk}\omega$. Table~\ref{tab:consistency_suite} lists a group-velocity/energy-flux residual of $6.91\times10^{-10}$. It is obtained from closed-form Case-H harmonic fields evaluated with the sign convention of Eq.~\eqref{eq:appB_S_cycle}, comparing the cycle-averaged flux $\langle\bm{S}\rangle/(\langle W\rangle+\langle T\rangle)$ against a central-difference estimate of $\nabla_{\bmk}\omega$ for both acoustic branches and multiple in-plane directions.
