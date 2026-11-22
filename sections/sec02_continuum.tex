@@ -22,7 +22,7 @@ l_1 &= l_{\mathrm{iso}}\sqrt{\mathrm{AR}}, \quad l_2 = \frac{l_{\mathrm{iso}}}{\
 \end{split}
 \label{eq:volume_equivalent}
 \end{equation}
-Here $\mathrm{AR}=l_1/l_2\ge1$. The second moment factor of the three-dimensional averaging domain is an ellipsoid solid is $1/10$. This is a factor that is maintained throughout the process of the formulation, and in the case of the plane strain reduction. The law below is the scalar-length form used for the constitutive and stiffness expressions at $l_1=l_2$.
+Here $\mathrm{AR}=l_1/l_2\ge1$. The second-moment factor of the three-dimensional averaging domain, an ellipsoidal solid, is $1/10$. This is a factor that is maintained throughout the process of the formulation, and in the case of the plane strain reduction. The law below is the scalar-length form used for the constitutive and stiffness expressions at $l_1=l_2$.
 
 \subsubsection{Orientation convention and passive rotation}
 We take positive $\theta$ to denote a clockwise orientation of the principal axes relative to the global frame $(x_1,x_2)$. The passive map from global coordinates $\bmx$ to local principal coordinates $\bmx'$ is:
@@ -136,4 +136,4 @@ p_i^{\mathrm{el}} &= (\sigma_{ij}-\tau_{ijk,k})n_j - \nabla_j^S(n_k\tau_{ijk}),
 \end{split}
 \label{eq:traction_def}
 \end{equation}
-where $\nabla_j^S$ denotes the surface divergence on the tangential component of $n_k\tau_{ijk}$. Additional line forces arise at boundary edges. The gradient micro-inertia adds $\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$ to the dynamic traction, so $p_i^{\mathrm{dyn}}=p_i^{\mathrm{el}}+\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$. The work-conjugate pairs are $(u_i,p_i^{\mathrm{dyn}})$ and $(\partial u_i/\partial n,R_i)$. The paired cell faces do not meet independent free-boundary conditions, but rather Bloch phase conditions.
+where $\nabla_j^S$ denotes the surface divergence on the tangential component of $n_k\tau_{ijk}$. Additional line forces arise at boundary edges. The gradient micro-inertia adds $\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$ to the dynamic traction, so $p_i^{\mathrm{dyn}}=p_i^{\mathrm{el}}+\rho\ell_{\mathrm{i}}^2\ddot u_{i,j}n_j$. The work-conjugate pairs are $(u_i,p_i^{\mathrm{dyn}})$ and $(\partial u_i/\partial n,R_i)$. The paired cell faces carry Bloch phase conditions instead of independent free-boundary conditions.

@@ -20,7 +20,7 @@ Each vertex has four degrees of freedom for each displacement component, giving 
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_bfs_dof_bloch.pdf}
-\caption{BFS finite element. (a) Number of degrees of freedom when a node is in a state of rest. (b) Bloch coupling of the displacement and derivative degrees of freedom at paired boundaries.}
+\caption{BFS finite element. (a) Degrees of freedom of the BFS element. (b) Bloch coupling of the displacement and derivative degrees of freedom at paired boundaries.}
 \label{fig:bfs_dof}
 \end{figure*}
 
@@ -79,7 +79,7 @@ The Bloch transformation links the slave DOFs on the top and right boundaries to
 \end{equation}
 Here $\bmT_{SM}(\bmk)$ is a diagonal complex phase matrix. Its entries are $e^{\iu k_x L}$, $e^{\iu k_y L}$ or $e^{\iu (k_x + k_y)L}$ for each periodic node pair. The phase multiplier for both degrees of freedom of displacement and derivative are identical.
 
-For the continuous weak form, the natural boundary works on both opposite faces of the cells cancel out. The effective traction $p_i^{\mathrm{dyn}}$ is the Bloch phase and it also has a sign change when the outward normal changes. It has a test trace with the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ is also Bloch phase, and their sign does not change when the normal changes. It has a work-conjugate normal derivative that takes on the opposite sign of the original derivative. These signs and phases cancel each other out. Line and corner terms go in pairs with the same translations. The appearance at the corner of the product phase $e^{\iu(k_x+k_y)L}$. A Bloch paired face does not have a separate free boundary condition.
+For the continuous weak form, the natural boundary works on both opposite faces of the cells cancel out. The effective traction $p_i^{\mathrm{dyn}}$ carries the Bloch phase and it also has a sign change when the outward normal changes. It has a test trace with the conjugate phase. The double traction $R_i=n_jn_k\tau_{ijk}$ also carries the Bloch phase, and their sign does not change when the normal changes. It has a work-conjugate normal derivative that takes on the opposite sign of the original derivative. These signs and phases cancel each other out. Line and corner terms go in pairs with the same translations. At the corner, the product phase $e^{\iu(k_x+k_y)L}$ appears. A Bloch paired face does not have a separate free boundary condition.
 We collect these relations in the master--slave transformation matrix $\bmT(\bmk)$:
 \begin{equation}
 \begin{split}
