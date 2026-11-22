@@ -2,9 +2,7 @@
 \label{sec:conclusions}
 \sloppy
 
-This work analyzed orientation-dependent Bloch dispersion in two-dimensional strain-gradient elasticity by combining a rotated ellipsoidal characteristic-length tensor with local Mindlin Form-II gradient elasticity and independent gradient micro-inertia, discretized with a conforming 32-degree-of-freedom BFS element that applies the Bloch phase to both displacement and derivative degrees of freedom.
-
-The main findings are as follows:
+We computed Bloch dispersion and group velocity for a two-dimensional Mindlin Form-II solid with an oriented ellipsoidal length tensor and independent gradient micro-inertia. The conforming BFS discretization imposes Bloch phases on displacement and derivative degrees of freedom. The results are summarized below:
 \begin{itemize}
   \item In homogeneous Case~H, aspect ratio and orientation shift the zone-edge branches and can open a directional spectral separation along selected directions, but the complete-gap measure remains negative: with no material contrast the effect is a reduced-zone one, and orientation-based tuning provides spectral separation rather than complete attenuation.
 
@@ -19,4 +17,4 @@ The main findings are as follows:
   \item All eight tabulated consistency checks are satisfied, including the energy-flux/group-velocity identity. The heterogeneous-literature comparisons remain qualitative, so the evidence supports the reported within-model trends rather than external agreement for the two-dimensional bands.
 \end{itemize}
 
-The formulation is directly applicable to analyzing orientation- and aspect-ratio-dependent directional dispersion and group-velocity steering in homogeneous strain-gradient media, and to complete-gap design in physically periodic, material-contrast media of the kind studied in Case~C. Extending the complete-gap result in Case~C to a mesh-converged estimate is the most direct next step; three-dimensional generalization of the characteristic-length tensor and element would require a corresponding $C^1$ volumetric discretization.
+The homogeneous model provides a way to examine directional dispersion and steering as the length tensor changes. The periodic-composite result needs further mesh refinement before its gap width can be reported as a continuum estimate. A three-dimensional extension would also require a suitable $C^1$ volumetric discretization.
