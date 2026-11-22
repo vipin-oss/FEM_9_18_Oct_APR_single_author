@@ -1,20 +1,13 @@
 \section{Conclusions}
 \label{sec:conclusions}
-\sloppy
 
-We computed Bloch dispersion and group velocity for a two-dimensional Mindlin Form-II solid with an oriented ellipsoidal length tensor and independent gradient micro-inertia. The conforming BFS discretization imposes Bloch phases on displacement and derivative degrees of freedom. The calculations give the following results:
+A conforming Bogner--Fox--Schmit discretization was used to study Bloch waves in two-dimensional Mindlin Form-II elasticity with an oriented ellipsoidal length tensor and independent gradient micro-inertia. Displacement and derivative degrees of freedom were given consistent Bloch phases.
+
 \begin{itemize}
-  \item In homogeneous Case~H, changing aspect ratio or orientation shifts the zone-edge frequencies. Positive directional separations occur, but the complete-gap measure remains negative. Without material contrast, these separations arise from reduced-zone folding rather than a complete attenuation gap.
-
-  \item With the ellipse area fixed, the directional separation varies non-monotonically with aspect ratio. Its largest sampled value is $\Delta_{GX}=0.0677$ at $\theta=0^\circ$, $\mathrm{AR}=7$. This is the largest of the evaluated designs, not a continuous optimum.
-
-  \item Tensor rotation changes the orientation of the acoustic steering lobes, with little change in their maximum angular deviation. The statement applies to the wavenumber ring and aspect ratios tested here.
-
-  \item For the periodic epoxy--YBCO cell, Bands~3 and~4 remain separated on all computed meshes. The gap narrows with refinement; its coarse-mesh width cannot be taken as a continuum estimate.
-
-  \item Gradient micro-inertia produces a high-wavenumber phase-speed limit of $0.3162$ for the transverse branch examined. No corresponding bound is claimed for other branches or constitutive laws.
-
-  \item All eight numerical consistency checks meet their stated criteria, including the energy-flux/group-velocity identity. Published heterogeneous comparisons provide only qualitative support; they do not independently validate the two-dimensional band calculations.
+  \item In homogeneous Case~H, rotation and aspect ratio change the zone-edge frequencies. The resulting directional separations do not form a complete band gap.
+  \item With the ellipse area held fixed, the separation varies non-monotonically. The largest value among the sampled designs is $\Delta_{GX}=0.0677$ at $\theta=0^\circ$, $\mathrm{AR}=7$.
+  \item Tensor rotation shifts the acoustic steering lobes without appreciably changing their peak angular deviation on the wavenumber ring examined.
+  \item The periodic epoxy--YBCO cell has a Bands~3--4 gap on the computed meshes, although its width has not converged. Gradient micro-inertia also gives a finite high-wavenumber phase-speed limit of $0.3162$ for the transverse branch.
 \end{itemize}
 
-Further refinement is needed to establish the continuum gap width for Case~C. Extending the formulation to three dimensions would require a suitable $C^1$ volume element.
+The next numerical step is further mesh refinement of Case~C. Extending the model to three dimensions would require a suitable $C^1$ volumetric element.
