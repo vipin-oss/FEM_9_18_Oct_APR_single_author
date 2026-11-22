@@ -2,7 +2,7 @@
 \label{sec:fem}
 
 \subsection{Bogner--Fox--Schmit Bicubic Hermite Element}
-The displacement-based Mindlin Form-II weak form requires second derivatives. Standard $C^0$ Lagrange interpolation is therefore insufficient for an $H^2(\Omega)$-conforming formulation. We use the Bogner--Fox--Schmit (BFS) bicubic element, which provides $C^1$ continuity across rectangular element boundaries on structured meshes \cite{bfs1965}.
+The displacement-based Mindlin Form-II weak form requires second derivatives. Standard $C^0$ Lagrange interpolation is therefore insufficient for an $H^2(\Omega)$-conforming formulation. We use the Bogner--Fox--Schmit (BFS) bicubic element, which is $C^1$-conforming on structured rectangular meshes \cite{bfs1965}.
 
 For a rectangular element of dimensions $2a \times 2b$, we interpolate $u_1(x, y)$ and $u_2(x, y)$ independently, using tensor products of one-dimensional cubic Hermite polynomials:
 \begin{equation}
@@ -15,7 +15,7 @@ where $a \in \{1, 2, 3, 4\}$ indexes the four element vertices, and $p \in \{1, 
 \bm{d}_{i, a}^e = \begin{bmatrix} u_i & \frac{\partial u_i}{\partial x} & \frac{\partial u_i}{\partial y} & \frac{\partial^2 u_i}{\partial x \partial y} \end{bmatrix}^\mathsf{T}_{\text{at node } a}.
 \label{eq:nodal_dof_vector}
 \end{equation}
-Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Their Bloch-phase mapping is shown in Figure~\ref{fig:bfs_dof}. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h=L/n=0.0625$ and $8n^2=2048$ independent degrees of freedom per cell. Here $8n^2$ counts the independent degrees of freedom after Bloch reduction. The Case-C mesh data instead use the assembled count $8(N+1)^2$ before reduction.
+Each vertex has four degrees of freedom for each displacement component, giving 32 per element. Figure~\ref{fig:bfs_dof} shows their Bloch-phase mapping. All reported band structures and design maps use a uniform mesh of $n \times n = 16 \times 16$ BFS elements per unit cell. This gives $h=L/n=0.0625$ and $8n^2=2048$ independent degrees of freedom per cell. Here $8n^2$ is the count after Bloch reduction. The Case-C mesh data instead use the assembled count $8(N+1)^2$ before reduction.
 
 \begin{figure*}[htbp]
 \centering
@@ -25,7 +25,7 @@ Each vertex has four degrees of freedom for each displacement component, giving 
 \end{figure*}
 
 \subsection{Element matrices}
-The strain tensor $\bm\varepsilon$ and strain-gradient tensor $\bm\eta$ within element $e$ are related to the element nodal displacement vector $\bm{d}^e \in \mathbb{R}^{32}$ via kinematic strain-displacement matrices $\bmB^c$ and $\bmB^g_k$:
+The strain tensor $\bm\varepsilon$ and strain-gradient tensor $\bm\eta$ within element $e$ are related to the element nodal displacement vector $\bm{d}^e \in \mathbb{R}^{32}$ through the kinematic strain--displacement matrices $\bmB^c$ and $\bmB^g_k$:
 \begin{equation}
 \begin{split}
 \bm\varepsilon &= \bmB^c \bm{d}^e,\\
@@ -48,7 +48,7 @@ The anisotropic gradient stiffness matrix is:
 \bmK^g(\theta, \mathrm{AR}) = \frac{1}{10} \sum_{k=1}^2 \sum_{l=1}^2 L_{kl}(\theta) \int_{\Omega_e} (\bmB^g_k)^\mathsf{T} \bmC \bmB^g_l \,\dif\Omega.
 \label{eq:Kg_int}
 \end{equation}
-In a homogeneous element, the stiffness and mass integrands have degree at most six in each coordinate. Four Gauss--Legendre points integrate polynomials up to degree seven exactly. A $4\times4$ rule is therefore enough. This avoids quadrature error for homogeneous elements; the unconstrained stiffness still has its expected rigid-body null modes. Elements intersected by the inclusion are integrated using sub-cell Gauss sampling with an $O(h)$ geometric approximation.
+In a homogeneous element, the stiffness and mass integrands have degree at most six in each coordinate. Four Gauss--Legendre points integrate polynomials up to degree seven exactly. A $4\times4$ rule is therefore enough. This avoids quadrature error for homogeneous elements. The unconstrained stiffness still has its expected rigid-body null modes. For elements intersected by the inclusion, we use sub-cell Gauss sampling with an $O(h)$ geometric approximation.
 
 \subsubsection{Mass and micro-inertia matrices}
 The kinetic energy gives the classical and micro-inertia mass contributions:
@@ -64,10 +64,10 @@ with:
 \end{split}
 \label{eq:Mg_int}
 \end{equation}
-Both $\bmM_0$ and $\bmM^g$ are symmetric and positive semi-definite; their sum $\bmM^e$ is strictly positive definite for any positive density $\rho > 0$.
+Both $\bmM_0$ and $\bmM^g$ are symmetric and positive semi-definite. Their sum $\bmM^e$ is strictly positive definite for any $\rho > 0$.
 
 \subsection{Bloch reduction and eigenproblem}
-To impose the Bloch conditions on $\partial\Omega_{\mathrm{cell}}$, the global degrees of freedom $\bm{d}$ are split into interior ($I$), master-boundary ($M$) and slave-boundary ($S$) sets:
+To impose the Bloch conditions on $\partial\Omega_{\mathrm{cell}}$, we split the global degrees of freedom $\bm{d}$ into interior ($I$), master-boundary ($M$) and slave-boundary ($S$) sets:
 \begin{equation}
 \bm{d} = \begin{bmatrix} \bm{d}_I \\ \bm{d}_M \\ \bm{d}_S \end{bmatrix}.
 \label{eq:d_partition}
@@ -99,12 +99,12 @@ Galerkin projection gives the reduced stiffness and mass matrices:
 \end{equation}
 
 \subsubsection{Reduced Hermitian eigenproblem}
-We obtain the dispersion curves $\barw_n(\bmk)$ from the reduced generalized eigenvalue problem:
+We obtain the dispersion curves $\barw_n(\bmk)$ from the reduced generalised eigenvalue problem:
 \begin{equation}
 \left[ \bar{\bmK}(\bmk) - \omega^2 \bar{\bmM}(\bmk) \right] \bar{\bm{d}} = \bm{0}.
 \label{eq:eigenproblem}
 \end{equation}
-Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so this subblock is unitary. The full matrix $\bmT(\bmk)$ is rectangular with full column rank. Unlike the phase subblock, it is not unitary. For positive elastic and inertial parameters, the full-cell matrices satisfy $\bmK\succeq 0$ and $\bmM\succ 0$; the reduced operators are therefore Hermitian:
+Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so this subblock is unitary. The full matrix $\bmT(\bmk)$ is rectangular with full column rank. Unlike the phase subblock, it is not unitary. For positive elastic and inertial parameters, the full-cell matrices satisfy $\bmK\succeq 0$ and $\bmM\succ 0$. The reduced operators are therefore Hermitian:
 \begin{equation}
 \begin{split}
 \bar{\bmK}(\bmk)^\mathsf{H} &= \bar{\bmK}(\bmk) \succeq 0, \\
@@ -112,7 +112,7 @@ Each entry of the diagonal phase subblock $\bmT_{SM}(\bmk)$ has unit modulus, so
 \end{split}
 \label{eq:hermiticity}
 \end{equation}
-The generalized eigenvalues $\omega_n^2$ are therefore real and nonnegative. Shifting $\bmk$ by a reciprocal-lattice vector $\bm{G}$ leaves every Bloch phase unchanged, so the reduced stiffness and mass matrices satisfy $\bar{\bmK}(\bmk + \bm{G}) = \bar{\bmK}(\bmk)$ and $\bar{\bmM}(\bmk + \bm{G}) = \bar{\bmM}(\bmk)$. The spectrum is periodic across reciprocal space.
+The generalised eigenvalues $\omega_n^2$ are therefore real and non-negative. Shifting $\bmk$ by a reciprocal-lattice vector $\bm{G}$ leaves every Bloch phase unchanged, so the reduced stiffness and mass matrices satisfy $\bar{\bmK}(\bmk + \bm{G}) = \bar{\bmK}(\bmk)$ and $\bar{\bmM}(\bmk + \bm{G}) = \bar{\bmM}(\bmk)$. The spectrum is periodic across reciprocal space.
 
 \subsubsection{Branch tracking}
 Modes of different spatial symmetry can cross along high-symmetry paths. To follow a mode between adjacent wave vectors, we use the Modal Assurance Criterion (MAC) at $\bmk_1$ and $\bmk_2$. Let $\bm{d}_m(\bmk)=\bmT(\bmk)\bar{\bm{d}}_m(\bmk)$ be the full-cell eigenvector. Let $\bmM$ be the common assembled full-cell mass matrix, which includes gradient micro-inertia. The cross-wavevector MAC is
@@ -122,4 +122,4 @@ Modes of different spatial symmetry can cross along high-symmetry paths. To foll
 }
 \label{eq:mac_def}
 \end{equation}
-The MAC uses the common full-cell mass matrix because the reduced mass matrix depends on $\bmk$. A direct comparison of reduced eigenvectors would therefore be inconsistent. If the off-diagonal MAC indicates a branch exchange, the continuation step is halved. Band gaps are computed from the frequency-ordered eigenvalues $\barw_1(\bmk) \le \barw_2(\bmk) \le \dots \le \barw_N(\bmk)$, independently of the mode labels assigned during tracking.
+The MAC uses the common full-cell mass matrix because the reduced mass matrix depends on $\bmk$. A direct comparison of reduced eigenvectors would therefore be inconsistent. If the off-diagonal MAC indicates a branch exchange, we halve the continuation step. We compute band gaps from the frequency-ordered eigenvalues $\barw_1(\bmk) \le \barw_2(\bmk) \le \dots \le \barw_N(\bmk)$, independently of the mode labels assigned during tracking.

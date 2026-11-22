@@ -2,7 +2,7 @@
 \label{sec:bloch}
 
 \subsection{Square lattice and Bloch conditions}
-The square cell $\Omega_{\mathrm{cell}}=[0,L]\times[0,L]$ is repeated along the lattice vectors
+We repeat the square cell $\Omega_{\mathrm{cell}}=[0,L]\times[0,L]$ along the lattice vectors
 \begin{equation}
 \bm{a}_1=\begin{bmatrix}L \\ 0\end{bmatrix},\qquad
 \bm{a}_2=\begin{bmatrix}0 \\ L\end{bmatrix}.
@@ -19,7 +19,7 @@ The first Brillouin zone is $\mathcal{B}=[-\pi/L,\pi/L]^2$. For the isotropic sq
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig02_lattice_ibz.pdf}
-\caption{(a) Square periodic lattice. (b) First Brillouin zone and the high-symmetry contour $\Gamma$--$X$--$M$--$\Gamma$}
+\caption{(a) Square periodic lattice. (b) First Brillouin zone and the high-symmetry contour $\Gamma$--$X$--$M$--$\Gamma$.}
 \label{fig:lattice_ibz}
 \end{figure*}
 
@@ -38,7 +38,7 @@ Because the approximation is $C^1$-conforming, differentiating the displacement 
 \end{equation}
 The phase multiplier is the same for displacement, first derivatives and mixed derivatives. Using a different multiplier for derivative degrees of freedom would violate $C^1$ continuity at the cell boundary.
 
-\subsection{Nondimensionalization}
+\subsection{Nondimensionalisation}
 For Case~H, we scale length, frequency, and velocity with the cell length $L$, shear modulus $\mu$, and density $\rho$:
 \begin{equation}
 \begin{split}
@@ -62,9 +62,9 @@ This gives $c_T=1$ and $c_L=\sqrt{(\lambda+2\mu)/\mu}=\sqrt{3}$ for $\lambda/\mu
 \end{table*}
 
 \subsection{Gap and steering measures}
-At each wave vector, the eigenfrequencies are ordered as $\barw_1(\bmk)\le\barw_2(\bmk)\le\cdots$. We distinguish gaps evaluated on one path leg, the complete high-symmetry path, and the full Brillouin zone:
+At each wave vector, we order the eigenfrequencies as $\barw_1(\bmk)\le\barw_2(\bmk)\le\cdots$. We distinguish gaps evaluated on one path leg, on the complete high-symmetry path, and on the full Brillouin zone:
 \begin{enumerate}[label=(\alph*)]
-  \item \textbf{Leg gap:} for bands $n$ and $n+1$, $\Delta[\mathrm{leg}]=\min_{\bmk\in\mathrm{leg}}\barw_{n+1}(\bmk)-\max_{\bmk\in\mathrm{leg}}\barw_n(\bmk)$; $\Delta_{GX}$ denotes the $\Gamma$--$X$ leg.
+  \item \textbf{Leg gap:} for bands $n$ and $n+1$, $\Delta[\mathrm{leg}]=\min_{\bmk\in\mathrm{leg}}\barw_{n+1}(\bmk)-\max_{\bmk\in\mathrm{leg}}\barw_n(\bmk)$. Here $\Delta_{GX}$ denotes the $\Gamma$--$X$ leg.
   \item \textbf{Path gap:}
   \begin{equation}
   \Delta_{\mathrm{path}}=\min_{\bmk\in\mathrm{path}}\barw_{n+1}(\bmk)-\max_{\bmk\in\mathrm{path}}\barw_n(\bmk).
@@ -81,14 +81,14 @@ The three sets are nested, giving the inequality
 \Delta[\mathrm{leg}]\ge\Delta[\mathrm{path}]\ge\Delta[\mathrm{complete}].
 \label{eq:gap_hierarchy}
 \end{equation}
-A positive leg gap concerns that path only. In homogeneous Case~H it reflects reduced-zone folding and does not imply physical attenuation. A complete band gap requires $\Delta_{\mathrm{complete}}>0$.
+A positive leg gap applies to that leg only. In homogeneous Case~H it reflects reduced-zone folding and does not imply physical attenuation. A complete band gap requires $\Delta_{\mathrm{complete}}>0$.
 
-The orientation sensitivity of a directional gap is measured by
+We measure the orientation sensitivity of a directional gap by
 \begin{equation}
 S_\theta=\frac{\max_\theta\left|\frac{\partial\Delta}{\partial\theta}\right|}{\max_\theta\Delta}\quad[\mathrm{rad}^{-1}].
 \label{eq:S_theta_def}
 \end{equation}
-{\sloppy The angular derivative is evaluated on the sampled $15^\circ$ orientation grid $\theta\in\{0^\circ,15^\circ,\ldots,90^\circ\}$, using a central difference at interior points and a one-sided difference at the $\theta=0^\circ$ and $90^\circ$ endpoints.\par}
+{\sloppy We evaluate the angular derivative on the sampled $15^\circ$ orientation grid $\theta\in\{0^\circ,15^\circ,\ldots,90^\circ\}$, with a central difference at interior points and a one-sided difference at the $\theta=0^\circ$ and $90^\circ$ endpoints.\par}
 
 The group velocity and its angular deviation from the wave vector are
 \begin{equation}

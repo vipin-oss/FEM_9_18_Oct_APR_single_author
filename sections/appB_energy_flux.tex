@@ -1,9 +1,9 @@
 \section{Time-Averaged Energy Flux in Form-II Gradient Elasticity}
 \label{app:energy_flux}
 
-The energy balance and cycle-averaged mechanical flux are derived here for the Mindlin Form-II solid with gradient micro-inertia.
+We derive the energy balance and cycle-averaged mechanical flux for the Mindlin Form-II solid with gradient micro-inertia.
 
-The local balance of mechanical energy is expressed by the continuity relation:
+The local balance of mechanical energy takes the continuity form:
 \begin{equation}
 \frac{\partial}{\partial t}(W + T) + \nabla \cdot \bm{S} = 0,
 \label{eq:appB_poynting_theorem}
@@ -14,13 +14,13 @@ where $W$ and $T$ are the strain and kinetic energy densities defined in Eqs.~\e
 &= \sigma_{ij} \dot{u}_{i,j} + \tau_{ijk} \dot{u}_{i,jk}, \label{eq:appB_dWdt} \\
 \frac{\partial T}{\partial t} &= \rho \dot{u}_i \ddot{u}_i + \rho \ell_{\mathrm{i}}^2 \dot{u}_{i,j} \ddot{u}_{i,j}. \label{eq:appB_dTdt}
 \end{align}
-Expanding the spatial derivative terms in Eq.~\eqref{eq:appB_dWdt} using the product rule:
+Expanding the spatial derivative terms in Eq.~\eqref{eq:appB_dWdt} with the product rule gives:
 \begin{align}
 \sigma_{ij} \dot{u}_{i,j} &= (\sigma_{ij} \dot{u}_i)_{,j} - \sigma_{ij,j} \dot{u}_i, \label{eq:appB_id1} \\
 \tau_{ijk} \dot{u}_{i,jk} &= (\tau_{ijk} \dot{u}_{i,j})_{,k} - \tau_{ijk,k} \dot{u}_{i,j} \notag \\
 &= (\tau_{ikj} \dot{u}_{i,k})_{,j} - (\tau_{ijk,k} \dot{u}_i)_{,j} + \tau_{ijk,kj} \dot{u}_i. \label{eq:appB_id2}
 \end{align}
-Similarly, the micro-inertial rate term in Eq.~\eqref{eq:appB_dTdt} expands to:
+The micro-inertial rate term in Eq.~\eqref{eq:appB_dTdt} expands to:
 \begin{equation}
 \begin{split}
 \rho \ell_{\mathrm{i}}^2 \dot{u}_{i,j} \ddot{u}_{i,j}
@@ -47,7 +47,7 @@ S_j &= -(\sigma_{ij} - \tau_{ijk,k}) \dot{u}_i - \tau_{ikj} \dot{u}_{i,k} \\
 \end{equation}
 The flux in Eq.~\eqref{eq:appB_S_instant} contains the effective traction power, the work of double stresses on velocity gradients, and the micro-inertial contribution.
 
-For time-harmonic fields represented in complex notation $\bmu(\bmx, t) = \mathrm{Re}[\tilde{\bmu}(\bmx) e^{-\iu \omega t}]$, the cycle-averaged energy flux $\langle S_j \rangle = \frac{1}{\mathcal{T}}\int_0^{\mathcal{T}} S_j\,\dif t$ is given by:
+For time-harmonic fields written in complex notation $\bmu(\bmx, t) = \mathrm{Re}[\tilde{\bmu}(\bmx) e^{-\iu \omega t}]$, the cycle-averaged energy flux $\langle S_j \rangle = \frac{1}{\mathcal{T}}\int_0^{\mathcal{T}} S_j\,\dif t$ is:
 \begin{equation}
 \begin{split}
 \langle S_j \rangle = -\frac{1}{2} \mathrm{Re} \Big[
@@ -57,9 +57,9 @@ For time-harmonic fields represented in complex notation $\bmu(\bmx, t) = \mathr
 \end{split}
 \label{eq:appB_S_cycle}
 \end{equation}
-Integrating over the unit cell $\Omega_{\mathrm{cell}}$, the cycle-averaged energy flux $\langle \bm{S} \rangle$ and stored energy satisfy:
+After integration over the unit cell $\Omega_{\mathrm{cell}}$, the cycle-averaged energy flux $\langle \bm{S} \rangle$ and the stored energy satisfy:
 \begin{equation}
 \bm{v}_g = \frac{\langle \bm{S} \rangle}{\langle W \rangle + \langle T \rangle},
 \label{eq:appB_vg_identity}
 \end{equation}
-The ratio of mean flux to mean stored energy gives the group velocity $\bm{v}_g=\nabla_{\bmk}\omega$. Table~\ref{tab:consistency_suite} lists a group-velocity/energy-flux residual of $6.91\times10^{-10}$. It is obtained from closed-form Case-H harmonic fields evaluated with the sign convention of Eq.~\eqref{eq:appB_S_cycle}, comparing the cycle-averaged flux $\langle\bm{S}\rangle/(\langle W\rangle+\langle T\rangle)$ against a central-difference estimate of $\nabla_{\bmk}\omega$ for both acoustic branches and multiple in-plane directions.
+The ratio of mean flux to mean stored energy gives the group velocity $\bm{v}_g=\nabla_{\bmk}\omega$. Table~\ref{tab:consistency_suite} lists a group-velocity/energy-flux residual of $6.91\times10^{-10}$. We obtain it from closed-form Case-H harmonic fields evaluated with the sign convention of Eq.~\eqref{eq:appB_S_cycle}. The cycle-averaged flux $\langle\bm{S}\rangle/(\langle W\rangle+\langle T\rangle)$ is compared with a central-difference estimate of $\nabla_{\bmk}\omega$ for both acoustic branches and multiple in-plane directions.
