@@ -2,19 +2,19 @@
 \label{sec:conclusions}
 \sloppy
 
-We computed Bloch dispersion and group velocity for a two-dimensional Mindlin Form-II solid with an oriented ellipsoidal length tensor and independent gradient micro-inertia. The conforming BFS discretization imposes Bloch phases on displacement and derivative degrees of freedom. The results are summarized below:
+We computed Bloch dispersion and group velocity for a two-dimensional Mindlin Form-II solid with an oriented ellipsoidal length tensor and independent gradient micro-inertia. The conforming BFS discretization imposes Bloch phases on displacement and derivative degrees of freedom. The calculations give the following results:
 \begin{itemize}
-  \item In homogeneous Case~H, aspect ratio and orientation shift the zone-edge branches and can open a directional spectral separation along selected directions, but the complete-gap measure remains negative: with no material contrast the effect is a reduced-zone one, and orientation-based tuning provides spectral separation rather than complete attenuation.
+  \item In homogeneous Case~H, changing aspect ratio or orientation shifts the zone-edge frequencies. Positive directional separations occur, but the complete-gap measure remains negative. Without material contrast, these separations arise from reduced-zone folding rather than a complete attenuation gap.
 
-  \item At fixed area, varying aspect ratio redistributes the principal length scales, and the sampled directional gap responds non-monotonically. The largest sampled $\Delta_{GX}=0.0677$ occurs at $\theta=0^\circ$, $\mathrm{AR}=7$; this identifies a design point in the evaluated set, not a continuous optimum.
+  \item With the ellipse area fixed, the directional separation varies non-monotonically with aspect ratio. Its largest sampled value is $\Delta_{GX}=0.0677$ at $\theta=0^\circ$, $\mathrm{AR}=7$. This is the largest of the evaluated designs, not a continuous optimum.
 
-  \item On the acoustic branch, rotating the tensor moves the steering lobes while the peak deviation remains nearly unchanged over the sampled orientations. For the evaluated ring and aspect ratios, orientation selects the energy-flow direction rather than increasing the sampled peak steering magnitude.
+  \item Tensor rotation changes the orientation of the acoustic steering lobes, with little change in their maximum angular deviation. The statement applies to the wavenumber ring and aspect ratios tested here.
 
-  \item Periodic epoxy--YBCO contrast in Case~C yields a positive complete gap between Bands~3 and~4 on every computed finite-element mesh, but its width narrows under refinement. The reported coarse-mesh width is therefore resolution-specific and is not a converged continuum estimate.
+  \item For the periodic epoxy--YBCO cell, Bands~3 and~4 remain separated on all computed meshes. The gap narrows with refinement; its coarse-mesh width cannot be taken as a continuum estimate.
 
-  \item For the transverse branch studied, gradient micro-inertia gives a finite high-wavenumber phase-speed limit of $0.3162$. This result is specific to the branch and constitutive model; it is not a bound established for other branches or formulations.
+  \item Gradient micro-inertia produces a high-wavenumber phase-speed limit of $0.3162$ for the transverse branch examined. No corresponding bound is claimed for other branches or constitutive laws.
 
-  \item All eight tabulated consistency checks are satisfied, including the energy-flux/group-velocity identity. The heterogeneous-literature comparisons remain qualitative, so the evidence supports the reported within-model trends rather than external agreement for the two-dimensional bands.
+  \item All eight numerical consistency checks meet their stated criteria, including the energy-flux/group-velocity identity. Published heterogeneous comparisons provide only qualitative support; they do not independently validate the two-dimensional band calculations.
 \end{itemize}
 
-The homogeneous model provides a way to examine directional dispersion and steering as the length tensor changes. The periodic-composite result needs further mesh refinement before its gap width can be reported as a continuum estimate. A three-dimensional extension would also require a suitable $C^1$ volumetric discretization.
+Further refinement is needed to establish the continuum gap width for Case~C. Extending the formulation to three dimensions would require a suitable $C^1$ volume element.
