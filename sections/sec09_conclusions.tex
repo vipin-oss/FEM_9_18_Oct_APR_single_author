@@ -1,20 +1,21 @@
+
 \section{Conclusions}
 \label{sec:conclusions}
 
-The main findings from the two-dimensional Mindlin Form-II Bloch-wave calculations are:
+The two-dimensional Mindlin Form-II Bloch-wave analysis leads to the following main findings:
 
 \begin{itemize}
-  \item The conforming Bogner--Fox--Schmit element applies the same Bloch phase to displacement and derivative degrees of freedom. Analytical limits and numerical checks support the implementation.
+    \item The conforming Bogner--Fox--Schmit element applies the same Bloch phase to displacement and derivative degrees of freedom. Analytical limiting cases and numerical checks support the implementation.
 
-  \item In homogeneous Case~H, the tensor orientation and aspect ratio shift the dispersion branches. Directional reduced-zone separations appear. We find no complete band gap.
+    \item In homogeneous Case~H, the dispersion branches change with the orientation and aspect ratio of the characteristic-length tensor. Directional reduced-zone separations are observed, but no complete band gap is found.
 
-  \item At fixed ellipse area, the separation does not vary monotonically with aspect ratio. The largest sampled value is $\Delta_{GX}=0.0677$ at $\theta=0^\circ$ and $\mathrm{AR}=7$.
+    \item At a fixed ellipse area, the directional separation does not vary monotonically with the aspect ratio. The largest sampled value is $\Delta_{GX}=0.0677$ at $\theta=0^\circ$ and $\mathrm{AR}=7$.
 
-  \item Rotating the length tensor changes the direction of acoustic energy flow. The peak group-velocity deviation is about $2.78^\circ$, and it hardly changes across the sampled orientations.
+    \item Rotating the characteristic-length tensor changes the direction of acoustic energy flow. The maximum group-velocity deviation is approximately $2.78^\circ$ and varies only slightly over the sampled orientations.
 
-  \item The periodic epoxy--YBCO composite shows a gap between Bands~3 and~4 on all computed meshes. The width decreases under refinement and is not converged.
+    \item The periodic epoxy--YBCO composite exhibits a gap between Bands~3 and~4 on every computed mesh. However, the gap width decreases under mesh refinement, and convergence has not been established.
 
-  \item Gradient micro-inertia limits the phase speed of the transverse branch at high wavenumber to $0.3162$ in normalised units. Without micro-inertia, this phase speed is unbounded.
+    \item At high wavenumbers, gradient micro-inertia limits the transverse-branch phase speed to $0.3162$ in normalised units. Without gradient micro-inertia, the phase speed grows without bound.
 \end{itemize}
 
-These results are relevant to direction-dependent elastic-wave transport in microstructured solids and to phononic media with controlled wave steering. The homogeneous model isolates orientation effects, since it has no periodic material contrast. The composite calculations address band-gap formation. Practical use needs material-specific calibration and further convergence checks for the composite gap.
+These results describe directional elastic-wave transport and steering in strain-gradient solids. The homogeneous model isolates the influence of tensor orientation without introducing periodic material contrast. The composite model separately examines band-gap formation due to periodic heterogeneity. Further mesh-convergence studies and material-specific calibration are required before quantitative predictions of the composite band gap can be made.
