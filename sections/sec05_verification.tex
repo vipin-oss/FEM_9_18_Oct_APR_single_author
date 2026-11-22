@@ -34,7 +34,7 @@ Mesh convergence is tested in homogeneous Case~H at $\bmk=(0.31\pi/L,0.22\pi/L)$
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig05_mesh_convergence.pdf}
-\caption{Case-H mesh study for the acoustic branch. (a) Relative frequency error versus element size; the $32^2$ result is shown as resolution-limited and is not included in the empirical fit. (b) Successive-mesh change and the operational mesh-change floor $\varepsilon_\Delta$}
+\caption{Case-H mesh convergence. (a) Acoustic-frequency error; the $32^2$ point is excluded from the empirical fit. (b) Successive-mesh changes and numerical floor $\varepsilon_\Delta$.}
 \label{fig:mesh_convergence}
 \end{figure*}
 
@@ -42,7 +42,7 @@ Mesh convergence is tested in homogeneous Case~H at $\bmk=(0.31\pi/L,0.22\pi/L)$
 \begin{center}
 \begin{threeparttable}
 \tablebodyfont
-\caption{Analytical and numerical consistency checks. All rows except the energy-flux identity assess the Bloch finite-element implementation directly; the energy-flux identity is a closed-form continuum check evaluated on exact Case-H harmonic fields (see text), not a check of the finite-element eigenvectors}
+\caption{Numerical consistency checks. The energy-flux identity uses closed-form Case-H fields; other checks assess the Bloch finite-element implementation.}
 \label{tab:consistency_suite}
 \input{tables/tab04_consistency_suite.tex}
 \end{threeparttable}
