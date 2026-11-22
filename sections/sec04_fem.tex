@@ -4,7 +4,7 @@
 \subsection{Bogner--Fox--Schmit Bicubic Hermite Element}
 The displacement-based Mindlin Form-II weak form requires second derivatives. Standard $C^0$ Lagrange interpolation is therefore insufficient for an $H^2(\Omega)$-conforming formulation. We use the Bogner--Fox--Schmit (BFS) bicubic element, which provides $C^1$ continuity across rectangular element boundaries on structured meshes \cite{bfs1965}.
 
-For a rectangular element of dimensions $2a \times 2b$, I interpolate $u_1(x, y)$ and $u_2(x, y)$ independently, using tensor products of one-dimensional cubic Hermite polynomials:
+For a rectangular element of dimensions $2a \times 2b$, we interpolate $u_1(x, y)$ and $u_2(x, y)$ independently, using tensor products of one-dimensional cubic Hermite polynomials:
 \begin{equation}
 u_i(x, y) = \sum_{a=1}^4 \sum_{p=1}^4 N_{a,p}(x, y) d_{i, a, p}^e, \quad i \in \{1, 2\},
 \label{eq:bfs_interpolation}
